@@ -6,13 +6,27 @@ import { styled } from "@mui/material/styles";
 import { Colors } from "@/theme/theme";
 import style from "./Header.module.css"
 import { ExpandMore, FavoriteBorder, Person, Search, ShoppingCart } from "@mui/icons-material";
+import { AppBarHeader, BadgeCountLabel, HeaderItemText, HeaderWrapper, ListItemIconBar, ListItemTopBar, ListItemTopBarLabel, TopBarButtonList, TopBarMediaIcon } from '@/styles/appbar/appbar';
+import { HeaderItem } from './HeaderItem';
+import CaretDownIcon from '@/components/icons/CaretDownIcon';
+import UserSmIcon from '@/components/icons/UserSmIcon';
+import SearchSmIcon from '@/components/icons/SearchSmIcon';
+import BasketSmIcon from '@/components/icons/BasketSmIcon';
+import HeartSmIcon from '@/components/icons/HeartSmIcon';
+import PhoneSmIcon from '@/components/icons/PhoneSmIcon';
+import MailSmIcon from '@/components/icons/MailSmIcon';
+import InstagramSmIcon from '@/components/icons/InstagramSmIcon';
+import YoutubeSmIcon from '@/components/icons/YoutubeSmIcon';
+import FacebookSmIcon from '@/components/icons/FacebookSmIcon';
+import TwitterSmIcon from '@/components/icons/TwitterSmIcon';
 
 export const HeaderDark = styled(Box)(() => ({
   height: "58px",
   backgroundColor: "#23856D",
   display: "flex",
   justifyContent: "center",
-  alignItems: "center"
+  alignItems: "center",
+  padding: "0px 24px"
 }));
 
 export const HeaderLight = styled(Box)(() => ({
@@ -20,7 +34,7 @@ export const HeaderLight = styled(Box)(() => ({
   height: "58px",
   padding: "0px 17px 0px 38px",
   // justifyContent: "flex-end",
-  alignItems: "flex-start",
+  alignItems: "center",
   gap: "40px",
 }));
 
@@ -35,80 +49,103 @@ export const Brand = styled(Typography)(() => ({
 
 function Header() {
   return (
-    <>
+    <HeaderWrapper>
       <HeaderDark>
-        <Grid container justifyContent="space-between">
-          <Grid item>
-            Item 1
+        <Grid container justifyContent="space-between" alignItems="center">
+          <Grid item display='flex' gap={1}>
+            <ListItemTopBar>
+              <PhoneSmIcon />
+              <ListItemTopBarLabel>
+                (225) 555-0118
+              </ListItemTopBarLabel>
+            </ListItemTopBar>
+            <ListItemTopBar>
+              <MailSmIcon />
+              <ListItemTopBarLabel>
+                michelle.rivera@example.com
+              </ListItemTopBarLabel>
+            </ListItemTopBar>
           </Grid>
           <Grid item>
-            Item 2
+            <ListItemTopBarLabel>
+              Follow Us  and get a chance to win 80% off
+            </ListItemTopBarLabel>
           </Grid>
-          <Grid item>
-            Item 3
+          <Grid item display="flex" alignItems="center">
+           <ListItemTopBarLabel>
+              Follow Us  :
+            </ListItemTopBarLabel>
+            <Box display="flex" alignItems="center">
+              <TopBarMediaIcon>
+                <InstagramSmIcon />
+              </TopBarMediaIcon>
+              <TopBarMediaIcon>
+                <YoutubeSmIcon />
+              </TopBarMediaIcon>
+              <TopBarMediaIcon>
+                <FacebookSmIcon />
+              </TopBarMediaIcon>
+              <TopBarMediaIcon>
+                <TwitterSmIcon />
+              </TopBarMediaIcon>
+            </Box>
           </Grid>
         </Grid>
       </HeaderDark>
       <HeaderLight>
-        <Box sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between"
-        }}>
-          <Brand>
-            Bandage
-          </Brand>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <Box>
-              <Button className={style.textTransformNone}>
-                Home
-              </Button>
-              <Button className={style.textTransformNone}
-                endIcon={<ExpandMore />}
-              >
-                Shop
-              </Button>
-              <Button className={style.textTransformNone}>
-                About
-              </Button>
-              <Button className={style.textTransformNone}>
-                Blog
-              </Button>
-              <Button className={style.textTransformNone}>
-                Contact
-              </Button>
-              <Button className={style.textTransformNone}>
-                Pages
-              </Button>
-            </Box>
-            <Box>
-              <Button className={style.textTransformNone}
-                startIcon={<Person />}
-              >
-                Login / Register
-              </Button>
-              <Button className={style.textTransformNone}
-                startIcon={<Search />}
-                variant='text'
-              >
-                1
-              </Button>
-              <IconButton aria-label="Search">
-                <Search />
-              </IconButton>
-              <IconButton aria-label="ShoppingCart">
-                <ShoppingCart />
-                1
-              </IconButton>
-              <IconButton aria-label="FavoriteBorder">
-                <FavoriteBorder />
-                1
-              </IconButton>
-            </Box>
-          </Box>
-        </Box>
+        <AppBarHeader>
+          Bandage
+        </AppBarHeader>
+        <TopBarButtonList type='row'>
+          <HeaderItem>
+            Home
+          </HeaderItem>
+          <HeaderItem icon={<CaretDownIcon />}>
+            Shop
+          </HeaderItem>
+          <HeaderItem>
+            About
+          </HeaderItem>
+          <HeaderItem>
+            Blog
+          </HeaderItem>
+          <HeaderItem>
+            Contact
+          </HeaderItem>
+          <HeaderItem>
+            Pages
+          </HeaderItem>
+        </TopBarButtonList>
+
+        <TopBarButtonList type='row' alignItem='right'>
+          <ListItemIconBar>
+            <UserSmIcon />
+            <HeaderItemText variant='body1'
+              sx={{
+                color: "#23A6F0"
+              }}
+            >
+              Login / Register
+            </HeaderItemText>
+          </ListItemIconBar>
+          <ListItemIconBar>
+            <SearchSmIcon />
+          </ListItemIconBar>
+          <ListItemIconBar>
+            <BasketSmIcon />
+            <BadgeCountLabel>
+              1
+            </BadgeCountLabel>
+          </ListItemIconBar>
+          <ListItemIconBar>
+            <HeartSmIcon />
+            <BadgeCountLabel>
+              1
+            </BadgeCountLabel>
+          </ListItemIconBar>
+        </TopBarButtonList>
       </HeaderLight>
-    </>
+    </HeaderWrapper>
   )
 }
 

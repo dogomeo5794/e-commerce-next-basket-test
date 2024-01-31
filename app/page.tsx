@@ -9,6 +9,7 @@ import Testimonial from "@/components/Testimonial/Testimonial";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import Feature from "@/components/Feature/Feature";
 import Cta from "@/components/Cta/Cta"
+import Blog from "@/components/Blog/Blog";
 
 const Home: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
       <ShopHeader />
       <ProductCard />
       <Feature />
+      <Blog />
       <Testimonial />
       <Cta />
       <Footer />

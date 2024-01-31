@@ -14,7 +14,8 @@ export const ShopItemLabel = styled(Typography)((color) => ({
 
 function Shop() {
   return (
-    <Box style={{ padding: "4px 147px" }}>
+    // <Box style={{ padding: "4px 147px" }}>
+    <Box style={{ padding: "4px 100px" }}>
       <Grid container spacing={2}>
         <Grid item lg={5} md={5} sm={12} xs={12}>
           <ProductCardLg
