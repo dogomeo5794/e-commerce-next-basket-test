@@ -1,12 +1,14 @@
 import { Card, CardContent } from "@mui/material";
 import React from "react";
 
-const ProductCardLg: React.FC<{
-  maxWidth: string,
-  height: string,
-  bgImage: String,
+interface ShopCardItemData {
+  maxWidth?: string
+  height?: string
+  bgImage?: String
   children: React.ReactNode
-}> = ({
+}
+
+const ShopCardItem: React.FC<ShopCardItemData> = ({
   height,
   bgImage,
   children
@@ -30,4 +32,4 @@ const ProductCardLg: React.FC<{
   );
 }
 
-export default ProductCardLg;
+export default ShopCardItem;

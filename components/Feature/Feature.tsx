@@ -1,8 +1,7 @@
 import React from 'react'
 import SectionTitle from '../cards/SectionTitle'
 import { Box, Card, CardContent, Container, Grid, Typography } from '@mui/material'
-import { SearchOff } from '@mui/icons-material'
-import CardFeatureItem from '../cards/CardFeatureItem'
+import FeatureItemCard from './FeatureItemCard'
 import BookReaderIcon from '../icons/BookReaderIcon'
 import ArrowGrowthIcon from '../icons/ArrowGrowthIcon'
 import CarbonBookIcon from '../icons/CarbonBookIcon'
@@ -40,7 +39,7 @@ function Feature() {
         <Grid container>
           {featureItems.map((data, key) => (
             <Grid item lg={4} md={4} sm={12} xs={12}>
-              <CardFeatureItem 
+              <FeatureItemCard 
                 icon={data.icon}
                 title={data.title}
                 description={data.description}

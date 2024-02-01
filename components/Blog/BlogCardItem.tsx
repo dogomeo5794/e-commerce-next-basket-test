@@ -3,7 +3,7 @@ import { BlogCard, BlogCardMedia, BlogCardTag, BlogCardTagText, BoxFlexCenter } 
 import { CardContent, CardMedia } from "@mui/material";
 import ClockSmIcon from "../icons/ClockSmIcon";
 import ChartSmIcon from "../icons/ChartSmIcon";
-import { LinkButton } from "@/styles/buttons";
+import { LinkButton } from "@/styles/Button.style";
 import ChevronRightSmIcon from "../icons/ChevronRightSmIcon";
 import { Colors } from "@/theme/colors";
 

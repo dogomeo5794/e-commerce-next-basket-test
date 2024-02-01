@@ -1,9 +1,8 @@
 import { Colors } from "@/theme/colors";
-import { SearchOff } from "@mui/icons-material";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import React from "react";
 
-const CardFeatureItem: React.FC<{
+const FeatureItemCard: React.FC<{
   icon: React.ReactNode,
   title: string,
   description: string
@@ -72,4 +71,4 @@ const CardFeatureItem: React.FC<{
   );
 };
 
-export default CardFeatureItem;
+export default FeatureItemCard;

@@ -1,6 +1,6 @@
 import { HeaderItemText } from "./Header.style";
 import theme from "@/theme/theme";
-import { ListItemText } from "@mui/material";
+import { Box, Link, ListItem, ListItemText } from "@mui/material";
 import React from "react";
 
 export const HeaderItem: React.FC<{
@@ -8,19 +8,21 @@ export const HeaderItem: React.FC<{
   children?: React.ReactNode;
 }> = ({ icon, children }) => {
   return (
-    <ListItemText>
-      {icon && (
-        <HeaderItemText
-          variant="body1"
-          gap={1}
-          display="flex"
-          alignItems="center"
-        >
-          {children}
-          {icon}
-        </HeaderItemText>
-      )}
-      {!icon && <HeaderItemText variant="body1">{children}</HeaderItemText>}
-    </ListItemText>
+    <ListItem disablePadding>
+      <Link href="javascript:void(0)" underline="none">
+        {icon && (
+          <HeaderItemText
+            variant="body1"
+            gap={1}
+            display="flex"
+            alignItems="center"
+          >
+            {children}
+            {icon}
+          </HeaderItemText>
+        )}
+        {!icon && <HeaderItemText variant="body1">{children}</HeaderItemText>}
+      </Link>
+    </ListItem>
   );
 };
