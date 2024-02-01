@@ -1,12 +1,8 @@
 "use client"
 
-import { Box, Button, Container, Grid, IconButton, Typography } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import React from 'react'
-import { styled } from "@mui/material/styles";
-import { Colors } from "@/theme/theme";
-import style from "./Header.module.css"
-import { ExpandMore, FavoriteBorder, Person, Search, ShoppingCart } from "@mui/icons-material";
-import { AppBarHeader, BadgeCountLabel, HeaderItemText, HeaderWrapper, ListItemIconBar, ListItemTopBar, ListItemTopBarLabel, TopBarButtonList, TopBarMediaIcon } from '@/styles/appbar/appbar';
+import { AppBarHeader, BadgeCountLabel, HeaderItemText, HeaderWrapper, ListItemIconBar, ListItemTopBarLabel, TopBarButtonList, TopBarMediaIcon } from './Header.style';
 import { HeaderItem } from './HeaderItem';
 import CaretDownIcon from '@/components/icons/CaretDownIcon';
 import UserSmIcon from '@/components/icons/UserSmIcon';
@@ -19,52 +15,31 @@ import InstagramSmIcon from '@/components/icons/InstagramSmIcon';
 import YoutubeSmIcon from '@/components/icons/YoutubeSmIcon';
 import FacebookSmIcon from '@/components/icons/FacebookSmIcon';
 import TwitterSmIcon from '@/components/icons/TwitterSmIcon';
-
-export const HeaderDark = styled(Box)(() => ({
-  height: "58px",
-  backgroundColor: "#23856D",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  padding: "0px 24px"
-}));
-
-export const HeaderLight = styled(Box)(() => ({
-  display: "flex",
-  height: "58px",
-  padding: "0px 17px 0px 38px",
-  // justifyContent: "flex-end",
-  alignItems: "center",
-  gap: "40px",
-}));
-
-export const Brand = styled(Typography)(() => ({
-  fontFamily: "Montserrat, sans-serif",
-  fontSize: "24px",
-  fontStyle: "normal",
-  fontWeight: "700",
-  lineHeight: "32px",
-  letterSpacing: "0.1px",
-}));
+import { HeaderDarkStyled, HeaderLightStyled } from './Header.style';
+import { Colors } from '@/theme/colors';
 
 function Header() {
   return (
     <HeaderWrapper>
-      <HeaderDark>
+      <HeaderDarkStyled>
         <Grid container justifyContent="space-between" alignItems="center">
           <Grid item display='flex' gap={1}>
-            <ListItemTopBar>
+            <ListItemIconBar
+              padding="10px"
+            >
               <PhoneSmIcon />
               <ListItemTopBarLabel>
                 (225) 555-0118
               </ListItemTopBarLabel>
-            </ListItemTopBar>
-            <ListItemTopBar>
+            </ListItemIconBar>
+            <ListItemIconBar
+              padding="10px"
+            >
               <MailSmIcon />
               <ListItemTopBarLabel>
                 michelle.rivera@example.com
               </ListItemTopBarLabel>
-            </ListItemTopBar>
+            </ListItemIconBar>
           </Grid>
           <Grid item>
             <ListItemTopBarLabel>
@@ -91,8 +66,8 @@ function Header() {
             </Box>
           </Grid>
         </Grid>
-      </HeaderDark>
-      <HeaderLight>
+      </HeaderDarkStyled>
+      <HeaderLightStyled>
         <AppBarHeader>
           Bandage
         </AppBarHeader>
@@ -121,9 +96,7 @@ function Header() {
           <ListItemIconBar>
             <UserSmIcon />
             <HeaderItemText variant='body1'
-              sx={{
-                color: "#23A6F0"
-              }}
+              color={Colors.primary}
             >
               Login / Register
             </HeaderItemText>
@@ -144,7 +117,7 @@ function Header() {
             </BadgeCountLabel>
           </ListItemIconBar>
         </TopBarButtonList>
-      </HeaderLight>
+      </HeaderLightStyled>
     </HeaderWrapper>
   )
 }

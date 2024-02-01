@@ -1,3 +1,4 @@
+import { Colors } from "@/theme/colors";
 import { SearchOff } from "@mui/icons-material";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import React from "react";
@@ -41,7 +42,7 @@ const CardFeatureItem: React.FC<{
         <Typography
           variant="h3"
           sx={{
-            color: "#252B42",
+            color: Colors.default_color,
             fontWeight: "700",
             fontSize: "24px",
             fontStyle: "normal",
@@ -55,7 +56,7 @@ const CardFeatureItem: React.FC<{
         <Typography
           variant="body1"
           sx={{
-            color: "#737373",
+            color: Colors.secondary_text_color,
             fontSize: "14px",
             fontStyle: "normal",
             lineHeight: "20px",

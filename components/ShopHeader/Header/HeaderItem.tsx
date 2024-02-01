@@ -1,4 +1,4 @@
-import { HeaderItemText } from "@/styles/appbar/appbar";
+import { HeaderItemText } from "./Header.style";
 import theme from "@/theme/theme";
 import { ListItemText } from "@mui/material";
 import React from "react";

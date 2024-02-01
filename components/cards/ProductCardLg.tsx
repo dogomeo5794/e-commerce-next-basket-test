@@ -7,7 +7,6 @@ const ProductCardLg: React.FC<{
   bgImage: String,
   children: React.ReactNode
 }> = ({
-  maxWidth,
   height,
   bgImage,
   children

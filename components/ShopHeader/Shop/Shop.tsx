@@ -4,6 +4,7 @@ import { Grid, Box, Card, CardMedia, CardContent, Typography, CardActions, Butto
 import { styled } from "@mui/material/styles";
 import React from "react";
 import ProductCardLg from "@/components/cards/ProductCardLg";
+import { Colors } from "@/theme/colors";
 
 export const ShopItemLabel = styled(Typography)((color) => ({
   fontfamily: "Montserrat, sans-serif",
@@ -25,7 +26,7 @@ function Shop() {
           >
             <ShopItemLabel variant="h6"
               sx={{
-                color: "#2DC071",
+                color: Colors.success,
                 fontSize: "14px",
                 lineHeight: "24px",
               }}
@@ -34,7 +35,7 @@ function Shop() {
             </ShopItemLabel>
             <ShopItemLabel variant="h6"
               sx={{
-                color: "#252B42",
+                color: Colors.default_color,
                 fontSize: "40px",
                 lineHeight: "50px",
               }}
@@ -43,7 +44,7 @@ function Shop() {
             </ShopItemLabel>
             <ShopItemLabel variant="h6"
               sx={{
-                color: "#252B42",
+                color: Colors.default_color,
                 fontSize: "14px",
                 lineHeight: "24px",
               }}
@@ -62,7 +63,7 @@ function Shop() {
               >
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#2DC071",
+                    color: Colors.success,
                     fontSize: "14px",
                     lineHeight: "24px",
                   }}
@@ -71,7 +72,7 @@ function Shop() {
                 </ShopItemLabel>
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#252B42",
+                    color: Colors.default_color,
                     fontSize: "40px",
                     lineHeight: "50px",
                   }}
@@ -80,7 +81,7 @@ function Shop() {
                 </ShopItemLabel>
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#252B42",
+                    color: Colors.default_color,
                     fontSize: "14px",
                     lineHeight: "24px",
                   }}
@@ -97,7 +98,7 @@ function Shop() {
               >
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#2DC071",
+                    color: Colors.success,
                     fontSize: "14px",
                     lineHeight: "24px",
                   }}
@@ -106,7 +107,7 @@ function Shop() {
                 </ShopItemLabel>
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#252B42",
+                    color: Colors.default_color,
                     fontSize: "40px",
                     lineHeight: "50px",
                   }}
@@ -115,7 +116,7 @@ function Shop() {
                 </ShopItemLabel>
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#252B42",
+                    color: Colors.default_color,
                     fontSize: "14px",
                     lineHeight: "24px",
                   }}
@@ -132,7 +133,7 @@ function Shop() {
               >
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#2DC071",
+                    color: Colors.success,
                     fontSize: "14px",
                     lineHeight: "24px",
                   }}
@@ -141,7 +142,7 @@ function Shop() {
                 </ShopItemLabel>
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#252B42",
+                    color: Colors.default_color,
                     fontSize: "40px",
                     lineHeight: "50px",
                   }}
@@ -150,7 +151,7 @@ function Shop() {
                 </ShopItemLabel>
                 <ShopItemLabel variant="h6"
                   sx={{
-                    color: "#252B42",
+                    color: Colors.default_color,
                     fontSize: "14px",
                     lineHeight: "24px",
                   }}

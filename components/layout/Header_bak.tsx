@@ -14,6 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Colors } from '@/theme/colors';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -46,7 +47,7 @@ const Header = () => {
             sx={{
               fontFamily: 'Montserrat, sans-serif',
               fontWeight: 700,
-              color: '#252B42',
+              color: Colors.default_color,
               fontSize: "24px"
             }}
           >

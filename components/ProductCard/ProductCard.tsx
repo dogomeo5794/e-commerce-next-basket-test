@@ -4,6 +4,7 @@ import { Box, Button, Container, Grid, styled } from '@mui/material'
 import React from 'react'
 import ProductCardMd from '../cards/ProductCardMd'
 import SectionTitle from '../cards/SectionTitle'
+import { Colors } from '@/theme/colors'
 
 function ProductCard() {
   return (
@@ -46,8 +47,8 @@ function ProductCard() {
       </Container>
       <Button variant='outlined'
         sx={{
-          border: "1px solid #23A6F0",
-          color: "#23A6F0",
+          border: `1px solid ${Colors.primary}`,
+          color: Colors.primary,
           fontSize: "14px",
           fontWeight: 700,
           lineHeight: "22px",

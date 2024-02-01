@@ -1,3 +1,4 @@
+import { Colors } from "@/theme/colors";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
@@ -40,14 +41,14 @@ const ProductCardMd: React.FC<{
             flexShrink: 0,
           }}
           image={bgImage}
-          title="green iguana"
+          title="Product Item"
         />
       </Box>
       <CardContent>
         <Typography
           variant="h5"
           sx={{
-            color: "#252B42",
+            color: Colors.default_color,
             fontWeight: "700",
             fontSize: "16px",
             fontStyle: "normal",
@@ -62,7 +63,7 @@ const ProductCardMd: React.FC<{
         <Link
           href="#"
           style={{
-            color: "#737373",
+            color: Colors.secondary_text_color,
             fontWeight: "700",
             fontSize: "14px",
             fontStyle: "normal",
@@ -86,7 +87,7 @@ const ProductCardMd: React.FC<{
           <Typography
             variant="h5"
             sx={{
-              color: "#BDBDBD",
+              color: Colors.muted,
               fontSize: "16px",
               fontStyle: "normal",
               lineHeight: "24px",
@@ -99,7 +100,7 @@ const ProductCardMd: React.FC<{
           <Typography
             variant="h5"
             sx={{
-              color: "#23856D",
+              color: Colors.secondary_color_1,
               fontSize: "16px",
               fontStyle: "normal",
               lineHeight: "24px",

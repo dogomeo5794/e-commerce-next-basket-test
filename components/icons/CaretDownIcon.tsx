@@ -1,3 +1,4 @@
+import { Colors } from "@/theme/colors";
 import React from "react";
 
 function CaretDownIcon() {
@@ -12,7 +13,7 @@ function CaretDownIcon() {
       <path
         id="Vector"
         d="M1.42857 0.5L5 4.07143L8.57143 0.5L10 1.21429L5 6.21429L-3.12224e-08 1.21429L1.42857 0.5Z"
-        fill="#252B42"
+        fill={Colors.default_color}
       />
     </svg>
   );

@@ -1,5 +1,6 @@
 "use client"
 
+import { Colors } from "@/theme/colors";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
@@ -34,7 +35,7 @@ const SectionTitle: React.FC<{
         <Typography
           variant="h2"
           sx={{
-            color: "#737373",
+            color: Colors.secondary_text_color,
             fontSize: "20px",
             fontStyle: "normal",
             fontWeight: "400",
@@ -48,7 +49,7 @@ const SectionTitle: React.FC<{
         <Typography
           variant="h3"
           sx={{
-            color: "#252B42",
+            color: Colors.default_color,
             fontSize: "24px",
             fontStyle: "normal",
             fontWeight: "700",
@@ -62,7 +63,7 @@ const SectionTitle: React.FC<{
         <Typography
           variant="body1"
           sx={{
-            color: "#737373",
+            color: Colors.secondary_text_color,
             fontSize: "14px",
             fontStyle: "normal",
             fontWeight: "400",
