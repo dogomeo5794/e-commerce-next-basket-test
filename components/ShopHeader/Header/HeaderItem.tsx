@@ -9,7 +9,7 @@ export const HeaderItem: React.FC<{
 }> = ({ icon, children }) => {
   return (
     <ListItem disablePadding>
-      <Link href="javascript:void(0)" underline="none">
+      <Link href="#" underline="none">
         {icon && (
           <HeaderItemText
             variant="body1"

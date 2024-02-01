@@ -31,11 +31,11 @@ export const AppBarHeader = styled(Typography)(() => ({
 
 export const TopBarButtonList = styled(List)<{
   type: string;
-  alignItem?: string;
-}>(({ type, alignItem }) => ({
+  align?: string;
+}>(({ type, align }) => ({
   display: type === "row" ? "flex" : "block",
   flexGrow: 1,
-  justifyContent: alignItem || "center",
+  justifyContent: align || "center",
   alignItems: "center",
 }));
 

@@ -1,3 +1,4 @@
+import { CardFlatStyled } from "@/styles/Card.style";
 import { CardMediaStyled, LinkButtonStyled, ProductBoxStyled, ProductTextStyled } from "@/styles/ProductItem.style";
 import { Colors } from "@/theme/colors";
 import { Card, CardContent } from "@mui/material";
@@ -20,12 +21,7 @@ const ProductItemCard: React.FC<ProductItemData> = ({
 }) => {
   return (
     // <Card sx={{ width: "183px" }}>
-    <Card sx={{
-      // width: "183px",
-      // border: "0",
-      boxShadow: "none",
-      borderRadius: "0",
-    }}>
+    <CardFlatStyled>
       <ProductBoxStyled
         height="238px"
         padding="5px 3px"
@@ -48,7 +44,7 @@ const ProductItemCard: React.FC<ProductItemData> = ({
           {title}
         </ProductTextStyled>
 
-        <LinkButtonStyled href="javascript:void(0)">
+        <LinkButtonStyled href="#">
           {link}
         </LinkButtonStyled>
         <ProductBoxStyled>
@@ -67,7 +63,7 @@ const ProductItemCard: React.FC<ProductItemData> = ({
           </ProductTextStyled>
         </ProductBoxStyled>
       </CardContent>
-    </Card>
+    </CardFlatStyled>
   );
 };
 

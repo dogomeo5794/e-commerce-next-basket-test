@@ -114,7 +114,7 @@ const BlogCardItem: React.FC<{
           </BoxFlexCenter>
         </BoxFlexCenter>
 
-        <LinkButton href="javascript:void(0)">
+        <LinkButton href="#">
           <BlogCardTagText
             variant="h6"
             color={Colors.secondary_text_color}

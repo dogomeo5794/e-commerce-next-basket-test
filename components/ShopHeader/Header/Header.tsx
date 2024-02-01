@@ -92,7 +92,7 @@ function Header() {
           </HeaderItem>
         </TopBarButtonList>
 
-        <TopBarButtonList type='row' alignItem='right'>
+        <TopBarButtonList type='row' align='right'>
           <ListItemIconBar>
             <UserSmIcon />
             <HeaderItemText variant='body1'

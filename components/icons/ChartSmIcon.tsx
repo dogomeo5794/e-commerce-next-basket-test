@@ -12,7 +12,7 @@ function ChartSmIcon() {
     >
       <g
         id="icon ant-design-area-chart-outlined"
-        clip-path="url(#clip0_8300_46)"
+        clipPath="url(#clip0_8300_46)"
       >
         <path
           id="Vector"
