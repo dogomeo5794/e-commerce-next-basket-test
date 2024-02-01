@@ -9,7 +9,8 @@ import FooterLink from './FooterLink'
 
 function Footer() {
   return (
-    <Box padding="0 170px">
+    // <Box padding="0 170px">
+    <Box padding="0 100px">
       <Box>
         <Box padding="40px 0">
           <Grid container justifyContent="space-between">
@@ -187,7 +188,8 @@ function Footer() {
                         padding: "15px 22.5px", 
                         border: "#E6E6E6",
                         borderRadius: "0px 5px 5px 0px",
-                        height: "62px"
+                        height: "62px",
+                        background: Colors.primary
                       }}
                     >
                       <TypographyStyled variant='body1'
@@ -216,7 +218,6 @@ function Footer() {
       </Box>
       <Box sx={{
         display: "flex",
-        width: "1050px",
         padding: "25px 0px",
         flexDirection: "column",
         alignItems: "flex-start",

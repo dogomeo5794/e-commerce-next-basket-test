@@ -90,6 +90,7 @@ export const HeaderLightStyled = styled(Box)(() => ({
   display: "flex",
   height: "58px",
   padding: "0px 17px 0px 38px",
+  // padding: "0px 100px 0px 100px",
   // justifyContent: "flex-end",
   alignItems: "center",
   gap: "40px",

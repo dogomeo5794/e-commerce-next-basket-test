@@ -3,12 +3,12 @@ import { Colors } from "./colors";
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: Colors.primary,
-    },
-    secondary: {
-      main: Colors.secondary,
-    },
+    // primary: {
+    //   main: Colors.primary,
+    // },
+    // secondary: {
+    //   main: Colors.secondary,
+    // },
   },
 
   typography: {

@@ -1,5 +1,5 @@
 import { Colors } from "@/theme/colors";
-import { Box, CardMedia, Link, Typography, styled } from "@mui/material";
+import { Box, CardMedia, Link, Typography, styled, LinkProps } from "@mui/material";
 
 export const ProductBoxStyled = styled(Box)(() => ({
   display: "flex",
@@ -9,15 +9,31 @@ export const ProductBoxStyled = styled(Box)(() => ({
   justifyContent: "center",
 }));
 
-export const LinkButtonStyled = styled(Link)(() => ({
-  color: Colors.secondary_text_color,
-  fontWeight: "700",
-  fontSize: "14px",
-  fontStyle: "normal",
-  lineHeight: "24px",
-  letterSpacing: "0.2px",
+export const LinkButtonStyled = styled(Link)<{
+  color?: string,
+  fontWeight?: string | number,
+  fontSize?: string | number,
+  fontStyle?: string,
+  lineHeight?: string,
+  letterSpacing?: string,
+  textDecoration?: string,
+}>(({
+  color,
+  fontWeight,
+  fontSize,
+  fontStyle,
+  lineHeight,
+  letterSpacing,
+  textDecoration,
+}) => ({
+  color: color || Colors.secondary_text_color,
+  fontWeight: fontWeight || "700",
+  fontSize: fontSize || "14px",
+  fontStyle: fontStyle || "normal",
+  lineHeight: lineHeight || "24px",
+  letterSpacing: letterSpacing || "0.2px",
   textAlign: "center",
-  textDecoration: "none",
+  textDecoration: textDecoration || "none",
 }));
 
 export const ProductTextStyled = styled(Typography)(() => ({
