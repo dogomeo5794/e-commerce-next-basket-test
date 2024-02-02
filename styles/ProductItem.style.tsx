@@ -1,5 +1,5 @@
 import { Colors } from "@/theme/colors";
-import { Box, CardMedia, Link, Typography, styled, LinkProps } from "@mui/material";
+import { Box, CardMedia, Link, Typography, styled } from "@mui/material";
 
 export const ProductBoxStyled = styled(Box)(() => ({
   display: "flex",
@@ -14,7 +14,7 @@ export const LinkButtonStyled = styled(Link)<{
   fontWeight?: string | number,
   fontSize?: string | number,
   fontStyle?: string,
-  lineHeight?: string,
+  lineHeight?: string | number,
   letterSpacing?: string,
   textDecoration?: string,
 }>(({
@@ -45,7 +45,9 @@ export const ProductTextStyled = styled(Typography)(() => ({
 }));
 
 export const CardMediaStyled = styled(CardMedia)(() => ({
-  width: "183px",
-  height: "238px",
+  // width: "183px",
+  width: "100%",
+  // height: "238px",
+  height: "350px",
   flexShrink: 0,
 }));

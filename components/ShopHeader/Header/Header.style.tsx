@@ -3,6 +3,7 @@
 import { Colors } from "@/theme/colors";
 import { Box, List, ListItemIcon, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Link from "next/link";
 
 export const AppBarContainer = styled(Box)(() => ({
   display: "flex",
@@ -53,6 +54,7 @@ export const ListItemIconBar = styled(ListItemIcon)<{
     padding: padding || "15px",
     alignItems: "center",
     gap: "5px",
+    cursor: "pointer"
   })
 );
 
@@ -94,4 +96,15 @@ export const HeaderLightStyled = styled(Box)(() => ({
   // justifyContent: "flex-end",
   alignItems: "center",
   gap: "40px",
+}));
+
+export const LinkButtonHoverStyled = styled(Link)(() => ({
+  padding: "5px 10px",
+  display: "flex",
+  alignItems: "center",
+  textDecoration: "none",
+  gap: "5px",
+  "&:hover": {
+    background: "#f1eeee"
+  }
 }));

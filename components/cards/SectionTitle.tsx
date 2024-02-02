@@ -5,11 +5,11 @@ import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 
-export const BoxLabel = styled(Box)(() => ({
+export const BoxLabel = styled(Box)<{ alignItems?: string }>(({ alignItems }) => ({
   display: "flex",
   // width: "692px",
   flexDirection: "column",
-  alignItems: "center",
+  alignItems: alignItems || "center",
 }))
 
 const SectionTitle: React.FC<{

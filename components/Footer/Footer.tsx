@@ -1,5 +1,5 @@
 import { TypographyStyled } from '@/styles/Typography.style'
-import { Box, Button, Divider, Grid, InputBase, Paper } from '@mui/material'
+import { Box, Button, Divider, Grid, InputBase, Link, Paper } from '@mui/material'
 import React from 'react'
 import FacebookSmIcon from '../icons/FacebookSmIcon'
 import InstagramSmIcon from '../icons/InstagramSmIcon'
@@ -43,15 +43,30 @@ function Footer() {
                 alignItems: "center",
                 gap: "20px",
               }}>
-                <FacebookSmIcon 
-                  color={Colors.primary}
-                />
-                <InstagramSmIcon 
-                  color={Colors.primary}
-                />
-                <TwitterSmIcon 
-                  color={Colors.primary}
-                />
+                <Link href="#"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <FacebookSmIcon 
+                    color={Colors.primary}
+                  />
+                </Link>
+                <Link href="#"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <InstagramSmIcon 
+                    color={Colors.primary}
+                  />
+                </Link>
+                <Link href="#"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <TwitterSmIcon 
+                    color={Colors.primary}
+                  />
+                </Link>
               </Box>
             </Grid>
           </Grid>

@@ -22,8 +22,8 @@ const ProductListCard = forwardRef<Ref, ProductProps>(({ children = null }: Prod
   return (
     <Grid container spacing={2}>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product, key) => (
-        <Grid item key={key}>
-          {/* <Grid item lg={3} md={3} sm={4} xs={12}> */}
+        // <Grid item key={key}>
+        <Grid item lg={3} md={3} sm={4} xs={12} key={key}>
           <ProductItemCard
             bgImage={`/images/products/product-${product}.jpg`}
             title="Graphic Design"

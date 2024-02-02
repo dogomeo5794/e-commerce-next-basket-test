@@ -23,7 +23,8 @@ const ProductItemCard: React.FC<ProductItemData> = ({
     // <Card sx={{ width: "183px" }}>
     <CardFlatStyled>
       <ProductBoxStyled
-        height="238px"
+        // height="238px"
+        height="350px"
         padding="5px 3px"
         alignItems="flex-start"
         gap="5px"
@@ -35,7 +36,7 @@ const ProductItemCard: React.FC<ProductItemData> = ({
           title="Product Item"
         />
       </ProductBoxStyled>
-      <CardContent>
+      <CardContent sx={{ textAlign: "center" }}>
         <ProductTextStyled
           variant="h5"
           color={Colors.default_color}

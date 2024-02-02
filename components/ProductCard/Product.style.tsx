@@ -1,5 +1,5 @@
 import { Colors } from "@/theme/colors";
-import { Button, Container, styled } from "@mui/material";
+import { Box, Button, Container, styled } from "@mui/material";
 
 export const ProductButtonStyled = styled(Button)(() => ({
   border: `1px solid ${Colors.primary}`,
@@ -11,10 +11,13 @@ export const ProductButtonStyled = styled(Button)(() => ({
   padding: "15px 40px",
 }));
 
-export const ProductContainerStyled = styled(Container)(() => ({
+export const ProductContainerStyled = styled(Box)<{
+  alignItems?: string,
+  padding?: string
+}>(({ alignItems, padding }) => ({
   display: "flex",
-  padding: "80px 0px",
+  padding: padding || "80px 0px",
   flexDirection: "column",
-  alignItems: "center",
+  alignItems: alignItems || "center",
   gap: "24px",
 }));

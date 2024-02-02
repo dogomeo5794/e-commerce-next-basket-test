@@ -1,8 +1,8 @@
 "use client"
 
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Link } from '@mui/material'
 import React from 'react'
-import { AppBarHeader, BadgeCountLabel, HeaderItemText, HeaderWrapper, ListItemIconBar, ListItemTopBarLabel, TopBarButtonList, TopBarMediaIcon } from './Header.style';
+import { AppBarHeader, BadgeCountLabel, HeaderItemText, HeaderWrapper, LinkButtonHoverStyled, ListItemIconBar, ListItemTopBarLabel, TopBarButtonList, TopBarMediaIcon } from './Header.style';
 import { HeaderItem } from './HeaderItem';
 import CaretDownIcon from '@/components/icons/CaretDownIcon';
 import UserSmIcon from '@/components/icons/UserSmIcon';
@@ -17,6 +17,7 @@ import FacebookSmIcon from '@/components/icons/FacebookSmIcon';
 import TwitterSmIcon from '@/components/icons/TwitterSmIcon';
 import { HeaderDarkStyled, HeaderLightStyled } from './Header.style';
 import { Colors } from '@/theme/colors';
+import { LinkButtonStyled } from '@/styles/ProductItem.style';
 
 function Header() {
   return (
@@ -52,16 +53,36 @@ function Header() {
             </ListItemTopBarLabel>
             <Box display="flex" alignItems="center">
               <TopBarMediaIcon>
-                <InstagramSmIcon />
+                <Link href="#"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <InstagramSmIcon />
+                </Link>
               </TopBarMediaIcon>
               <TopBarMediaIcon>
-                <YoutubeSmIcon />
+                <Link href="#"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <YoutubeSmIcon />
+                </Link>
               </TopBarMediaIcon>
               <TopBarMediaIcon>
-                <FacebookSmIcon />
+                <Link href="#"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <FacebookSmIcon />
+                </Link>
               </TopBarMediaIcon>
               <TopBarMediaIcon>
-                <TwitterSmIcon />
+                <Link href="#"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <TwitterSmIcon />
+                </Link>
               </TopBarMediaIcon>
             </Box>
           </Grid>
@@ -102,7 +123,7 @@ function Header() {
             </HeaderItemText>
           </ListItemIconBar>
           <ListItemIconBar>
-            <SearchSmIcon />
+              <SearchSmIcon />
           </ListItemIconBar>
           <ListItemIconBar>
             <BasketSmIcon />
