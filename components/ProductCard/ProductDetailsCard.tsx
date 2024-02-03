@@ -1,6 +1,6 @@
 import { TypographyStyled } from "@/styles/Typography.style";
 import { Box, Button, Divider, Grid, IconButton, Rating } from "@mui/material";
-import React from "react";
+import React, { useCallback } from "react";
 import DotSolidIcon from "../icons/DotSolidIcon";
 import { Colors } from "@/theme/colors";
 import HeartSmIcon from "../icons/HeartSmIcon";
@@ -9,17 +9,46 @@ import HeartDefaultIcon from "../icons/HeartDefaultIcon";
 import EyeDefaultIcon from "../icons/EyeDefaultIcon";
 import { FavoriteBorder, HeartBrokenOutlined } from "@mui/icons-material";
 import ProductCarouselCard from "./ProductCarouselCard";
+import StarSolidSmIcon from "../icons/StarSolidSmIcon";
+import StarOutlinedSmIcon from "../icons/StarOutlinedSmIcon";
+import { BoxFlexCenter } from "../Blog/Blog.style";
+import { API } from "@/lib/api";
+import { ProductItemDataInterface } from "../cards/ProductItemCard";
+import { useParams } from "next/navigation";
 
 const ProductDetailsCard: React.FC = () => {
+  const params = useParams();
+  const productId = params?.id;
+  console.log('productId', productId)
   const [rating, setRating] = React.useState<number | null>(4);
+  const [product, setProduct] = React.useState<ProductItemDataInterface | null>(null);
+
+  const gerProductDetails = async({ productId }: { productId?: any}) => {
+    const {data, status} = await API.get(`/products/${productId}`);
+    console.log('data', data)
+    setRating(data?.rating)
+    setProduct(data)
+  }
+
+  React.useEffect(() => {
+    gerProductDetails({ productId: productId });
+  }, [])
+
+  const getFormattedPrice = useCallback((price: number): string => {
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      currencyDisplay: "symbol",
+    });
+  
+    return formatter.format(price)
+  }, [])
 
   return (
-    <Box
+    <BoxFlexCenter
       sx={{
-        display: "flex",
         padding: "24px 100px",
         flexDirection: "column",
-        alignItems: "center",
       }}
     >
       <Grid container>
@@ -38,13 +67,11 @@ const ProductDetailsCard: React.FC = () => {
               fontWeight={400}
               lineHeight="30px"
             >
-              Floating Phone
+              {product?.title}
             </TypographyStyled>
-            <Box sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: "7px",
-                margin: "15px 0"
+            <BoxFlexCenter sx={{
+              gap: "7px",
+              margin: "15px 0"
             }}>
               <Rating
                 name="simple-controlled"
@@ -52,13 +79,15 @@ const ProductDetailsCard: React.FC = () => {
                 onChange={(event, newValue) => {
                   setRating(newValue);
                 }}
+                icon={<StarSolidSmIcon />}
+                emptyIcon={<StarOutlinedSmIcon />}
               />
               <TypographyStyled variant="h6"
                 color={Colors.secondary_text_color}
               >
                 10 Reviews
               </TypographyStyled>
-            </Box>
+            </BoxFlexCenter>
             <TypographyStyled variant="h4"
               color={Colors.default_color}
               fontSize="24px"
@@ -66,13 +95,9 @@ const ProductDetailsCard: React.FC = () => {
               letterSpacing="0.1px"
               margin="5px 0"
             >
-              $1,139.33
+              {getFormattedPrice(product?.price || 0)}
             </TypographyStyled>
-            <Box sx={{
-              display: "flex",
-              gap: "5px",
-              alignItems: "center",
-            }}>
+            <BoxFlexCenter>
               <TypographyStyled variant="h6"
                 color={Colors.secondary_text_color}
               >
@@ -83,20 +108,19 @@ const ProductDetailsCard: React.FC = () => {
               >
                 In Stock
               </TypographyStyled>
-            </Box>
+            </BoxFlexCenter>
 
             <Divider sx={{ margin: "85px 0 25px 0" }} />
 
-            <Box sx={{
+            <BoxFlexCenter sx={{
               display: "inline-flex",
-              alignItems: "center",
               gap: "10px",
             }}>
               <DotSolidIcon color={Colors.primary} />
               <DotSolidIcon color={Colors.success} />
               <DotSolidIcon color={Colors.warning} />
               <DotSolidIcon color={Colors.default_color} />
-            </Box>
+            </BoxFlexCenter>
 
             <Box sx={{
               display: "inline-flex",
@@ -139,7 +163,7 @@ const ProductDetailsCard: React.FC = () => {
           </Box>
         </Grid>
       </Grid>
-    </Box>
+    </BoxFlexCenter>
   );
 };
 

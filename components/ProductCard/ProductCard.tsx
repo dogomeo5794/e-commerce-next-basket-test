@@ -7,6 +7,8 @@ import ProductListCard from '../cards/ProductListCard'
 import { ProductButtonStyled, ProductContainerStyled } from './Product.style'
 
 const ProductCard: React.FC = () => {
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [loadedAllProduct, setLoadedAllProduct] = React.useState<boolean>(false);
   const productListRef = useRef<{ loadMoreProduct: () => void }>(null);
   const handleLoadMoreProduct = () => {
     productListRef.current?.loadMoreProduct();
@@ -26,13 +28,20 @@ const ProductCard: React.FC = () => {
           subTitle='BESTSELLER PRODUCTS'
           description='Problems trying to resolve the conflict between '
         />
-        <ProductListCard ref={productListRef} />
+        <ProductListCard 
+          ref={productListRef} 
+          setLoading={setLoading}
+          setLoadedAllProduct={setLoadedAllProduct}
+        />
       </ProductContainerStyled>
-      <ProductButtonStyled variant='outlined'
-        onClick={handleLoadMoreProduct}
-      >
-        LOAD MORE PRODUCTS
-      </ProductButtonStyled>
+      {!loadedAllProduct && (
+        <ProductButtonStyled variant='outlined'
+          onClick={handleLoadMoreProduct}
+          disabled={loading}
+        >
+          { loading ? 'Loading...' : 'LOAD MORE PRODUCTS' }
+        </ProductButtonStyled>
+      )}
     </Container>
   )
 }

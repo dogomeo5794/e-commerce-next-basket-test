@@ -20,6 +20,8 @@ import FaBrandStripeIcon from "../icons/FaBrandStripeIcon";
 import FaBrandPiperHatIcon from "../icons/FaBrandPiperHatIcon";
 import FaBrandAwsIcon from "../icons/FaBrandAwsIcon";
 import FaBrandRedditIcon from "../icons/FaBrandRedditIcon";
+import { BoxFlexCenter } from "../Blog/Blog.style";
+import ProductDetailsTab from "./ProductDescriptionTab";
 
 const ProductDescriptionCard: React.FC = () => {
   const [rating, setRating] = React.useState<number | null>(4);
@@ -27,87 +29,16 @@ const ProductDescriptionCard: React.FC = () => {
   return (
     <Box
       sx={{
-        display: "flex",
         padding: "24px 100px",
         flexDirection: "column",
       }}
     >
       <Box>
-        <List sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center"
-        }}>
-          <ListItem
-            sx={{
-              display: "inline-flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "220px",
-              padding: "0"
-            }}
-          >
-            <LinkButtonStyled href="#"
-              color={Colors.secondary_text_color}
-              fontWeight={600}
-              padding="24px"
-              width="100%"
-              sx={{
-                "&:hover": {
-                  background: "#edecec"
-                }
-              }}
-            >
-              Description
-            </LinkButtonStyled>
-          </ListItem>
-          <ListItem
-            sx={{
-              display: "inline-flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "220px",
-              padding: "0"
-            }}
-          >
-            <LinkButtonStyled href="#"
-              color={Colors.secondary_text_color}
-              fontWeight={700}
-              padding="24px"
-              width="100%"
-              sx={{
-                "&:hover": {
-                  background: "#edecec"
-                }
-              }}
-            >
-              Additional Information
-            </LinkButtonStyled>
-          </ListItem>
-          <ListItem
-            sx={{
-              display: "inline-flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "220px",
-              padding: "0"
-            }}
-          >
-            <LinkButtonStyled href="#"
-              color={Colors.secondary_text_color}
-              fontWeight={700}
-              padding="24px"
-              display="flex"
-              flexDirection="row"
-              gap={0.5}
-              width="100%"
-              justifyContent="center"
-              sx={{
-                "&:hover": {
-                  background: "#edecec"
-                }
-              }}
-            >
+        <ProductDetailsTab
+          tabs={[
+            "Description",
+            "Additional Information",
+            <>
               <TypographyStyled variant="body1"
                 color={Colors.secondary_text_color}
                 fontWeight={700}
@@ -121,12 +52,12 @@ const ProductDescriptionCard: React.FC = () => {
               >
                 (0)
               </TypographyStyled>
-            </LinkButtonStyled>
-          </ListItem>
-        </List>
+            </>
+          ]}
+        />
       </Box>
 
-      <Divider />
+      <Divider style={{ width: "100%", marginBottom: "15px" }} />
 
       <Box>
         <Box padding="24px 0 48px 0">
@@ -170,20 +101,6 @@ const ProductDescriptionCard: React.FC = () => {
               </CardFlatStyled>
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
-              {/* <CardFlatStyled>
-                <ProductBoxStyled
-                  alignItems="flex-start"
-                  gap="5px"
-                  alignSelf="stretch"
-                  flexDirection="column"
-                  borderRadius="9px"
-                >
-                  <CardMediaStyled
-                    image="/images/bg/bg-table.jpg"
-                    title="Product Item"
-                  />
-                </ProductBoxStyled>
-              </CardFlatStyled> */}
               <Paper sx={{
                 width: "100%",
                 height: "392px",
@@ -232,7 +149,7 @@ const ProductDescriptionCard: React.FC = () => {
 
       <Box>
         <Box padding="50px 20px 50px 20px">
-          <Grid container alignItems="center">
+          <Grid container alignItems="center" spacing={10}>
             <Grid item lg={2} md={2} sm={4} xs={12}>
               <FaBrandHooliIcon />
             </Grid>

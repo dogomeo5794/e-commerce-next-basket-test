@@ -1,5 +1,7 @@
+"use client"
+
 import { CardFlatStyled } from '@/styles/Card.style'
-import { Box, Card, CardContent, Container, Grid, ImageList, ImageListItem, Typography } from '@mui/material'
+import { Box, Card, CardContent, Container, Grid, ImageList, ImageListItem, Rating, Typography } from '@mui/material'
 import React from 'react'
 import StarSolidSmIcon from '../icons/StarSolidSmIcon'
 import StarOutlinedSmIcon from '../icons/StarOutlinedSmIcon'
@@ -46,6 +48,8 @@ function Testimonial() {
       title: 'Mushrooms',
     },
   ];
+
+  const [rating, setRating] = React.useState<number | null>(4);
 
   return (
     <Container sx={{
@@ -119,11 +123,14 @@ function Testimonial() {
                   alignItems: "flex-start",
                   gap: "5px"
                 }}>
-                  <StarSolidSmIcon />
-                  <StarSolidSmIcon />
-                  <StarSolidSmIcon />
-                  <StarSolidSmIcon />
-                  <StarOutlinedSmIcon />
+                  <Rating
+                    value={rating}
+                    onChange={(event, newValue) => {
+                      setRating(newValue);
+                    }}
+                    icon={<StarSolidSmIcon />}
+                    emptyIcon={<StarOutlinedSmIcon />}
+                  />
                 </Box>
                 <DescriptionTextStyled variant='h6'
                   color={Colors.secondary_text_color}

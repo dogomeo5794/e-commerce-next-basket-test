@@ -4,21 +4,35 @@ import { Colors } from "@/theme/colors";
 import { Card, CardContent } from "@mui/material";
 import React from "react";
 
-interface ProductItemData {
+export interface ProductItemDataInterface {
   bgImage: string
   title: string
   link: string
-  price: string
-  subPrice: string
+  price: number
+  discountedPrice: number
+  id: number
 }
 
-const ProductItemCard: React.FC<ProductItemData> = ({
+const ProductItemCard: React.FC<ProductItemDataInterface> = ({
   bgImage,
   title,
   link,
   price,
-  subPrice
+  discountedPrice,
+  id
 }) => {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    currencyDisplay: "symbol",
+  });
+
+  const priceFormat = formatter.format(price)
+
+  const discount = price * (discountedPrice / 100);
+  const discounted = price - discount;
+  const disPriceFormat = formatter.format(discounted)
+
   return (
     // <Card sx={{ width: "183px" }}>
     <CardFlatStyled>
@@ -33,7 +47,7 @@ const ProductItemCard: React.FC<ProductItemData> = ({
       >
         <CardMediaStyled
           image={bgImage}
-          title="Product Item"
+          title={title}
         />
       </ProductBoxStyled>
       <CardContent sx={{ textAlign: "center" }}>
@@ -45,7 +59,7 @@ const ProductItemCard: React.FC<ProductItemData> = ({
           {title}
         </ProductTextStyled>
 
-        <LinkButtonStyled href="#">
+        <LinkButtonStyled href={`/products/${id}`}>
           {link}
         </LinkButtonStyled>
         <ProductBoxStyled>
@@ -53,14 +67,16 @@ const ProductItemCard: React.FC<ProductItemData> = ({
             variant="h5"
             color={Colors.muted}
             fontSize="16px"
+            title="Original Price"
           >
-            {price}
+            {priceFormat}
           </ProductTextStyled>
           <ProductTextStyled
             variant="h5"
             color={Colors.secondary_color_1}
+            title="Discounted Price"
           >
-            {subPrice}
+            {disPriceFormat}
           </ProductTextStyled>
         </ProductBoxStyled>
       </CardContent>
