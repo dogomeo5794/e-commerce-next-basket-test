@@ -9,8 +9,10 @@ import ProductBestSellerCard from '@/components/ProductCard/ProductBestSellerCar
 import ProductBrandLogoListCard from '@/components/ProductCard/ProductBrandLogoListCard';
 import { API } from '@/lib/api';
 import { ProductDataInterface } from '@/components/cards/ProductListCard';
+import { useTheme } from '@mui/material';
 
 const ProductDetails: React.FC = () => {
+  const theme = useTheme();
   const params = useParams();
   const productId = params?.id;
   const [product, setProduct] = React.useState<ProductDataInterface>({
@@ -43,8 +45,12 @@ const ProductDetails: React.FC = () => {
     <>
       <BreadCrumb />
       <ProductDetailsCard product={product} />
-      <ProductDescriptionCard product={product} />
-      <ProductBestSellerCard />
+      {!theme.breakpoints.down("md") && (
+        <>
+          <ProductDescriptionCard product={product} />
+          <ProductBestSellerCard />
+        </>
+      )}
       <ProductBrandLogoListCard />
     </>
   )

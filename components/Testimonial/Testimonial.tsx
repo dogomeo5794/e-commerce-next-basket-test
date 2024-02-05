@@ -9,6 +9,7 @@ import { DescriptionTextStyled } from './Testimonial.style'
 import { Colors } from '@/theme/colors'
 import { LinkButton } from '@/styles/Button.style'
 import Image from "next/legacy/image"
+import { CardMediaStyled } from '@/styles/ProductItem.style'
 
 function Testimonial() {
   const itemData = [
@@ -53,55 +54,37 @@ function Testimonial() {
   const [rating, setRating] = React.useState<number | null>(4);
 
   return (
-    <Container sx={{
+    <Container sx={(theme) => ({
       padding: "80px 0",
-      textAlign: "center"
-    }}>
+      textAlign: "center",
+      [theme.breakpoints.down("sm")]: {
+        padding: "0 35px"
+      }
+    })}>
       <Box>
         <Grid container>
-          <Grid item lg={6} md={6} sm={12} xs={12}
-            sx={{
-              display: "flex",
-              width: "438px",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "28px",
-              flexShrink: "0",
-            }}
-          >
+          <Grid item lg={7} md={6} sm={12} xs={12}>
             <DescriptionTextStyled variant='h6'
               fontSize="24px"
               lineHeight="32px"
               letterSpacing="0.1px"
               color={Colors.default_color}
-              marginTop={2}
+              padding="10px 0"
+              sx={(theme) => ({
+                [theme.breakpoints.down("sm")]: {
+                  padding: "0 30px"
+                }
+              })}
             >
               What they say about us
             </DescriptionTextStyled>
             <CardFlatStyled
               sx={{
-                display: "flex",
-                width: "446px",
-                padding: "30px 35px",
-                justifyContent: "center",
-                alignItems: "flex-start",
+                marginTop: "10px"
               }}
             >
-              <CardContent sx={{
-                display: "flex",
-                width: "442px",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "20px",
-                flexShrink: "0",
-              }}>
-                <Box sx={{
-                  display: "flex",
-                  width: "90px",
-                  height: "90px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}>
+              <CardContent>
+                <Box>
                 {/* <MediaContent> */}
                   <Image
                     src="/images/testimonials/user-1.png"
@@ -122,31 +105,37 @@ function Testimonial() {
                 {/* </MediaContent> */}
                 </Box>
                 <Box sx={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "5px"
+                  padding: "10px 0"
                 }}>
                   <Rating
                     value={rating}
-                    onChange={(event, newValue) => {
-                      setRating(newValue);
-                    }}
+                    // onChange={(event, newValue) => {
+                    //   setRating(newValue);
+                    // }}
                     icon={<StarSolidSmIcon />}
                     emptyIcon={<StarOutlinedSmIcon />}
+                    readOnly
                   />
                 </Box>
                 <DescriptionTextStyled variant='h6'
                   color={Colors.secondary_text_color}
+                  padding="10px 40px"
+                  sx={(theme) => ({
+                    [theme.breakpoints.down("sm")]: {
+                      padding: "10px 5px"
+                    }
+                  })}
                 >
                   Slate helps you see how many more days you need to work to reach your financial goal.
                 </DescriptionTextStyled>
 
                 <Box sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
+                  padding: "10px",
+                  textAlign: "center"
                 }}>
-                  <LinkButton>
+                  <LinkButton
+                    justifyContent="center"
+                  >
                     Regina Miles
                   </LinkButton>
                   <DescriptionTextStyled
@@ -158,7 +147,45 @@ function Testimonial() {
               </CardContent>
             </CardFlatStyled>
           </Grid>
-          <Grid item lg={6} md={6} sm={12} xs={12}>
+          <Grid item lg={5} md={6} sm={12} xs={12}>
+            {/* <Box sx={(theme) => ({
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "12px",
+              width: "475px",
+              overflow: "auto",
+              [theme.breakpoints.down("md")]: {
+                width: '475px',
+              },
+              [theme.breakpoints.down("sm")]: {
+                width: '295px',
+              }
+            })}>
+              {itemData.map((item) => (
+                <CardMediaStyled
+                  image={item.img}
+                  title={item.title}
+                  sx={(theme) => ({
+                    height: '150px',
+                    width: '150px',
+                    [theme.breakpoints.up("md")]: {
+                      height: '132px',
+                      width: '132px',
+                    },
+                    [theme.breakpoints.down("sm")]: {
+                      height: '90px',
+                      width: '90px',
+                    },
+                    [theme.breakpoints.down("xs")]: {
+                      height: '90px',
+                      width: '90px',
+                    }
+                  })}
+                />
+              ))}
+            </Box> */}
+
+            
             <ul style={{
               display: "flex",
               flexWrap: "wrap",
@@ -167,9 +194,10 @@ function Testimonial() {
               margin: 0,
               padding: 0,
             }}>
-            {/* <ImageList sx={{ width: "428.307px", height: "428.307px" }} cols={3}> */}
               {itemData.map((item) => (
-                <ImageListItem key={item.img} style={{ width: "142.769px", height: "142.769px" }}>
+                <ImageListItem key={item.img} 
+                  style={{ width: "142.769px", height: "142.769px" }}
+                >
                   <Image
                     src={item.img}
                     alt={item.title}
@@ -179,7 +207,6 @@ function Testimonial() {
                   />
                 </ImageListItem>
               ))}
-            {/* </ImageList> */}
             </ul>
           </Grid>
         </Grid>

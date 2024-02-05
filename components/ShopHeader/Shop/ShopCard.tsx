@@ -4,8 +4,8 @@ import { ShopItemLabel } from "./Shop.style";
 import { Colors } from "@/theme/colors";
 
 interface ShopCardData {
-  maxWidth?: string
-  height?: string
+  maxWidth?: any
+  height?: any
   bgImage?: string
   itemLabel?: string
   title?: string

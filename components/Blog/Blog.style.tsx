@@ -55,10 +55,10 @@ export const BlogCardTagText = styled(Typography)<{
   letterSpacing: "0.2px",
 }))
 
-export const BoxFlexCenter = styled(Box)(() => ({
+export const BoxFlexCenter = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  gap: "5px"
+  gap: "5px",
 }))
 
 

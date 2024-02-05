@@ -123,10 +123,13 @@ const ProductDetailsCard: React.FC<{ product: ProductDataInterface }> = ({ produ
 
   return (
     <BoxFlexCenter
-      sx={{
+      sx={(theme) => ({
         padding: "24px 100px",
         flexDirection: "column",
-      }}
+        [theme.breakpoints.down("sm")]: {
+          padding: "24px 30px",
+        },
+      })}
     >
       <Grid container>
         <Grid item lg={6} md={12} sm={12} xs={12}>
@@ -135,10 +138,21 @@ const ProductDetailsCard: React.FC<{ product: ProductDataInterface }> = ({ produ
           />
         </Grid>
         <Grid item lg={6} md={12} sm={12} xs={12}>
-          <Box 
-            padding="11px 24px"
+          <Box
             display="flex"
             flexDirection="column"
+            sx={{
+              padding: {
+                xs: "11px 0",
+                sm: "11px 0",
+                md: "11px 24px",
+                lg: "11px 24px",
+              },
+              marginTop: {
+                xs: "30px",
+                sm: "0",
+              }
+            }}
           >
             <TypographyStyled variant="h4"
               color={Colors.default_color}
@@ -190,7 +204,26 @@ const ProductDetailsCard: React.FC<{ product: ProductDataInterface }> = ({ produ
               </TypographyStyled>
             </BoxFlexCenter>
 
-            <Divider sx={{ margin: "85px 0 25px 0" }} />
+            <Box sx={(theme) => ({ 
+              marginTop: "40px",
+              [theme.breakpoints.up("md")]: {
+                marginTop: "80px",
+              }
+            })}>
+              <TypographyStyled variant="h6"
+                color={Colors.secondary_text_color}
+                fontWeight={400}
+                sx={(theme) => ({
+                  [theme.breakpoints.up("md")]: {
+                    display: "none"
+                  }
+                })}
+              >
+                {product.description}
+              </TypographyStyled>
+            </Box>
+
+            <Divider sx={{ marginBottom: "25px", marginTop: "15px" }} />
 
             <BoxFlexCenter sx={{
               display: "inline-flex",

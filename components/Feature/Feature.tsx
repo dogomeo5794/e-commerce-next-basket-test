@@ -28,7 +28,9 @@ function Feature() {
     <Container sx={{
       padding: "80px 0px"
     }}>
-      <Box>
+      <Box sx={{
+        textAlign: "center",
+      }}>
         <SectionTitle
           title="Featured Products"
           subTitle="THE BEST SERVICES"

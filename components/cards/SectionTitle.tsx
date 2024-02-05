@@ -13,7 +13,7 @@ export const BoxLabel = styled(Box)<{ alignItems?: string }>(({ alignItems }) =>
 }))
 
 const SectionTitle: React.FC<{
-  title: string,
+  title: any,
   subTitle: string,
   description: string
 }> = ({
@@ -34,42 +34,48 @@ const SectionTitle: React.FC<{
       >
         <Typography
           variant="h2"
-          sx={{
+          sx={(theme) => ({
             color: Colors.secondary_text_color,
             fontSize: "20px",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "30px",
             letterSpacing: "0.2px",
-          }}
+          })}
         >
           {title}
         </Typography>
 
         <Typography
           variant="h3"
-          sx={{
+          sx={(theme) => ({
             color: Colors.default_color,
             fontSize: "24px",
             fontStyle: "normal",
             fontWeight: "700",
             lineHeight: "32px",
             letterSpacing: "0.1px",
-          }}
+            [theme.breakpoints.down("sm")]: {
+              width: "248px"
+            }
+          })}
         >
           {subTitle}
         </Typography>
 
         <Typography
           variant="body1"
-          sx={{
+          sx={(theme) => ({
             color: Colors.secondary_text_color,
             fontSize: "14px",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "20px",
             letterSpacing: "0.2px",
-          }}
+            [theme.breakpoints.down("sm")]: {
+              width: "200px"
+            }
+          })}
         >
           {description}
         </Typography>

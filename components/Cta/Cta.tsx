@@ -14,34 +14,48 @@ function Cta() {
         // background: "grey",
         background: `url("/images/bg/cta-bg-1.jpg"), lightgray 50% / cover no-repeat`,
         backgroundSize: "cover",
-        display: "flex",
-        // width: "1440px",
-        height: "640px",
-        justifyContent: "center",
-        alignItems: "center",
-        flexShrink: "0",
+        // display: "flex",
+        // // width: "1440px",
+        minHeight: "640px",
+        // justifyContent: "center",
+        // alignItems: "center",
+        // flexShrink: "0",
+        position: "relative"
       }}>
-        <Box sx={{
-          display: "flex",
-          width: "1050px",
-          padding: "160px 0px 112px 0px",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "24px",
-        }}>
-          <Grid container sx={{
-            display: "flex",
-            width: "607px",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "36px",
+        <Box sx={(theme) => ({
+          // display: "flex",
+          // width: "1050px",
+          // padding: "160px 0px 112px 0px",
+          // flexDirection: "column",
+          // alignItems: "center",
+          // gap: "24px",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          textAlign: "center",
+          padding: "30px",
+          [theme.breakpoints.down("md")]: {
+            position: "unset",
+            top: "unset",
+            left: "unset",
+            transform: "unset",
+            padding: "30px 15px"
+          }
+        })}>
+          {/* <Grid container sx={{
+            // display: "flex",
+            // width: "607px",
+            // flexDirection: "column",
+            // alignItems: "center",
+            // gap: "36px",
           }}>
             <Grid item sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "30px",
-            }}>
+              // display: "flex",
+              // flexDirection: "column",
+              // alignItems: "center",
+              // gap: "30px",
+            }}> */}
               <TypographyStyled variant='h2'
                 color={Colors.primary}
                 textAlign="center"
@@ -52,7 +66,12 @@ function Cta() {
                 color={Colors.default_color}
                 fontSize="40px"
                 lineHeight="50px"
-                textAlign="center"
+                padding="20px 0"
+                sx={(theme) => ({
+                  [theme.breakpoints.down("md")]: {
+                    padding: "20px 10px"
+                  }
+                })}
               >
                 Problems trying to resolve the conflict between
               </TypographyStyled>
@@ -60,8 +79,13 @@ function Cta() {
                 color={Colors.secondary_text_color}
                 fontWeight={400}
                 lineHeight="20px"
-                maxWidth="447px"
                 textAlign="center"
+                padding="15px 90px"
+                sx={(theme) => ({
+                  [theme.breakpoints.down("md")]: {
+                    padding: "15px 30px"
+                  }
+                })}
               >
                 Problems trying to resolve the conflict between the two major realms of Classical physics: 
               </TypographyStyled>
@@ -72,6 +96,7 @@ function Cta() {
                   lineHeight="32px"
                   letterSpacing="0.1px"
                   textAlign="center"
+                  padding="15px"
                 >
                   $16.48
                 </TypographyStyled>
@@ -87,8 +112,8 @@ function Cta() {
                   </TypographyStyled>
                 </Button>
               </Box>
-            </Grid>
-          </Grid>
+            {/* </Grid>
+          </Grid> */}
         </Box>
       </Box>
     </Box>

@@ -30,13 +30,20 @@ const Blog: React.FC = () => {
   ]
 
   return (
-    <Container>
+    <Container
+      sx={(theme) => ({
+        [theme.breakpoints.down("sm")]: {
+          padding: "0px 35px",
+        }
+      })}
+    >
       <BlogContentWrapper>
         <Grid
           container
           flexDirection="column"
           alignItems="center"
           gap={1.5}
+          textAlign="center"
         >
           <BlogCardTagText
             variant="h6"

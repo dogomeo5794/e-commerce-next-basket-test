@@ -6,11 +6,12 @@ import InstagramSmIcon from '../icons/InstagramSmIcon'
 import TwitterSmIcon from '../icons/TwitterSmIcon'
 import { Colors } from '@/theme/colors'
 import FooterLink from './FooterLink'
+import { ResponsiveBox } from './Footer.style'
 
 function Footer() {
   return (
     // <Box padding="0 170px">
-    <Box padding="0 100px">
+    <ResponsiveBox>
       <Box>
         <Box padding="40px 0">
           <Grid container justifyContent="space-between">
@@ -78,7 +79,7 @@ function Footer() {
       <Box>
         <Box padding="50px 0">
           <Grid container spacing={2}>
-            <Grid item lg={2} md={2} sm={12}>
+            <Grid item lg={2} md={2} sm={12} xs={12} marginTop={3}>
               <FooterLink 
                 title='Company Info'
                 links={[
@@ -101,7 +102,7 @@ function Footer() {
                 ]}
               />
             </Grid>
-            <Grid item lg={2} md={2} sm={12}>
+            <Grid item lg={2} md={2} sm={12} xs={12} marginTop={3}>
               <FooterLink 
                 title='Legal'
                 links={[
@@ -124,7 +125,7 @@ function Footer() {
                 ]}
               />
             </Grid>
-            <Grid item lg={2} md={2} sm={12}>
+            <Grid item lg={2} md={2} sm={12} xs={12} marginTop={3}>
               <FooterLink 
                 title='Features'
                 links={[
@@ -147,7 +148,7 @@ function Footer() {
                 ]}
               />
             </Grid>
-            <Grid item lg={2} md={2} sm={12}>
+            <Grid item lg={2} md={2} sm={12} xs={12} marginTop={3}>
               <FooterLink 
                 title='Resources'
                 links={[
@@ -170,7 +171,7 @@ function Footer() {
                 ]}
               />
             </Grid>
-            <Grid item lg={4} md={4} sm={12}>
+            <Grid item lg={4} md={4} sm={12} xs={12} marginTop={3}>
               <Box display="flex" flexDirection="column" gap={2.5}>
                 <TypographyStyled
                   variant="h5"
@@ -194,7 +195,8 @@ function Footer() {
                   >
                     <InputBase
                       sx={{ 
-                        padding: "15px 20px"
+                        padding: "15px 20px",
+                        width: "100%"
                       }}
                       placeholder="Your Email"
                     />
@@ -245,12 +247,22 @@ function Footer() {
         }}>
           <TypographyStyled variant='body1'
             color={Colors.secondary_text_color}
+            sx={{
+              padding: {
+                xs: "24px 30px",
+                sm: "0",
+              },
+              textAlign: {
+                xs: "center",
+                sm: "left"
+              }
+            }}
           >
             Made With Love By Finland All Right Reserved 
           </TypographyStyled>
         </Box>
       </Box>
-    </Box>
+    </ResponsiveBox>
   )
 }
 

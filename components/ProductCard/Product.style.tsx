@@ -13,7 +13,7 @@ export const ProductButtonStyled = styled(Button)(() => ({
 
 export const ProductContainerStyled = styled(Box)<{
   alignItems?: string,
-  padding?: string
+  padding?: any
 }>(({ alignItems, padding }) => ({
   display: "flex",
   padding: padding || "80px 0px",

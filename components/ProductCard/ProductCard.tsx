@@ -15,14 +15,19 @@ const ProductCard: React.FC = () => {
   }
 
   return (
-    <Container sx={{
-      // display: "flex",
+    <Container sx={(theme) => ({
       padding: "0px 160px",
-      // justifyContent: "flex-end",
-      // alignItems: "center",
-      textAlign: "center"
-    }}>
-      <ProductContainerStyled>
+      textAlign: "center",
+      [theme.breakpoints.down("sm")]: {
+        padding: "0px 35px",
+      }
+    })}>
+      <ProductContainerStyled
+        padding={{
+          xs: "80px 0px",
+          sm: "80px 0px 50px 0",
+        }}
+      >
         <SectionTitle 
           title='Featured Products'
           subTitle='BESTSELLER PRODUCTS'

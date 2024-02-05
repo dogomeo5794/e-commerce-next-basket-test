@@ -10,6 +10,7 @@ import FaBrandRedditIcon from "../icons/FaBrandRedditIcon";
 function ProductBrandLogoListCard() {
   return (
     <Box sx={{
+      textAlign: "center",
 			padding: "24px 100px",
       flexDirection: "column",
 		}}>
