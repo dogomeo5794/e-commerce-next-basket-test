@@ -9,7 +9,7 @@ const ProductCarouselCard: React.FC<{ images?: Array<string> }> = ({ images }) =
   return (
     <Carousel
       navButtonsAlwaysVisible={true}
-      IndicatorIcon={images && images.map(img => <img src={img} style={{ width: "100px", height: "75px", border: "1px solid #c7c5c5" }} />)}
+      IndicatorIcon={images && images.map((img, key) => <img src={img} key={key} style={{ width: "100px", height: "75px", border: "1px solid #c7c5c5" }} />)}
       indicatorContainerProps={{
         style: {
           display: "inline-flex",
