@@ -27,15 +27,15 @@ const ProductDetails: React.FC = () => {
     title: "",
   });
 
-  const gerProductDetails = async({ productId }: { productId?: any}) => {
-    const {data, status} = await API.get(`/products/${productId}`);
+  const gerProductDetails = async({ id }: { id?: any}) => {
+    const {data, status} = await API.get(`/products/${id}`);
     console.log('data', data)
     setProduct(data)
   }
 
   React.useEffect(() => {
     if (productId) {
-      gerProductDetails({ productId: productId });
+      gerProductDetails({ id: productId });
     }
   }, [productId])
 

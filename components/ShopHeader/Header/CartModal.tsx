@@ -163,9 +163,14 @@ const CartModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref) =>
                       <Image
                         src={product.thumbnail}
                         alt=""
-                        layout="fill"
-                        objectFit="cover"
                         loading="lazy"
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                          objectFit: "cover",
+                        }}
+                        width={100}
+                        height={100}
                       />
                     </Link>
                   </Box>
