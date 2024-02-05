@@ -5,8 +5,8 @@ import React, { forwardRef, useImperativeHandle } from "react";
 import ProductItemCard from "./ProductItemCard";
 import { API } from "@/lib/api";
 
-interface ProductData {
-  brand: string,
+export interface ProductDataInterface {
+  brand: string
   category: string
   description: string
   discountPercentage: number
@@ -36,7 +36,7 @@ const ProductListCard = forwardRef<Ref, ProductProps>(({ children = null, setLoa
     }
   }))
 
-  const [products, setProducts] = React.useState<Array<ProductData>>([]);
+  const [products, setProducts] = React.useState<Array<ProductDataInterface>>([]);
   const [paginate, setPaginate] = React.useState({
     total: 0,
     limit: 8,
@@ -46,7 +46,11 @@ const ProductListCard = forwardRef<Ref, ProductProps>(({ children = null, setLoa
   const gerProducts = async({ loadMore }: { loadMore?: boolean}) => {
     setLoading ? setLoading(true) : null;
 
-    const {data, status} = await API.get("/products", { skip: paginate.skip, limit: paginate.limit });
+    const {data, status} = await API.get("/products", {
+      params: {
+        skip: paginate.skip, limit: paginate.limit
+      }
+    });
     
     if (products.length + data.products.length === data.total) {
       setLoadedAllProduct ? setLoadedAllProduct(true) : null;
@@ -79,7 +83,7 @@ const ProductListCard = forwardRef<Ref, ProductProps>(({ children = null, setLoa
 
   return (
     <Grid container spacing={2}>
-      {products.map((product: ProductData, key) => (
+      {products.map((product: ProductDataInterface, key) => (
         // <Grid item key={key}>
         <Grid item lg={3} md={3} sm={4} xs={12} key={product.id}>
           <ProductItemCard

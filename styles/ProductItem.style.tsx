@@ -1,5 +1,6 @@
 import { Colors } from "@/theme/colors";
-import { Box, CardMedia, Link, Typography, styled } from "@mui/material";
+import { Box, CardMedia, Typography, styled } from "@mui/material";
+import Link from "next/link";
 
 export const ProductBoxStyled = styled(Box)(() => ({
   display: "flex",

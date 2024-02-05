@@ -1,8 +1,8 @@
 "use client"
 
-import { Box, Grid, Link } from '@mui/material'
-import React from 'react'
-import { AppBarHeader, BadgeCountLabel, HeaderItemText, HeaderWrapper, LinkButtonHoverStyled, ListItemIconBar, ListItemTopBarLabel, TopBarButtonList, TopBarMediaIcon } from './Header.style';
+import { Backdrop, Box, Button, Fade, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal, Typography } from '@mui/material'
+import React, { useRef } from 'react'
+import { AppBarHeader, BadgeCountLabel, HeaderItemText, HeaderWrapper, ListItemIconBar, ListItemTopBarLabel, TopBarButtonList, TopBarMediaIcon } from './Header.style';
 import { HeaderItem } from './HeaderItem';
 import CaretDownIcon from '@/components/icons/CaretDownIcon';
 import UserSmIcon from '@/components/icons/UserSmIcon';
@@ -17,129 +17,176 @@ import FacebookSmIcon from '@/components/icons/FacebookSmIcon';
 import TwitterSmIcon from '@/components/icons/TwitterSmIcon';
 import { HeaderDarkStyled, HeaderLightStyled } from './Header.style';
 import { Colors } from '@/theme/colors';
-import { LinkButtonStyled } from '@/styles/ProductItem.style';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store';
+import { Add, Delete, Inbox, Remove } from '@mui/icons-material';
+import Link from 'next/link';
+import { TypographyStyled } from '@/styles/Typography.style';
+import CartModal from './CartModal';
+import WishlistModal from './WishlistModal';
+import LoginModal from './LoginModal';
 
-function Header() {
+const Header: React.FC = () => {
+  const cartModalRef = useRef<{ show: () => void }>(null);
+  const wishlistModalRef = useRef<{ show: () => void }>(null);
+  const loginModalRef = useRef<{ show: () => void }>(null);
+  const cartCounter = useSelector((state: RootState) => state.product.cartCounter)
+  const whishListCounter = useSelector((state: RootState) => state.product.wishlistCounter)
+  // const cartList = useSelector((state: RootState) => state.product.cartList)
+  // console.log('cartList', cartList)
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    cartModalRef.current?.show();
+  };
+
+  const handleOpenWishlistModal = () => {
+    wishlistModalRef.current?.show();
+  };
+
+  const handleOpenLoginModal = () => {
+    loginModalRef.current?.show();
+  };
+
   return (
-    <HeaderWrapper>
-      <HeaderDarkStyled>
-        <Grid container justifyContent="space-between" alignItems="center">
-          <Grid item display='flex' gap={1}>
-            <ListItemIconBar
-              padding="10px"
-            >
-              <PhoneSmIcon />
+    <>
+      <HeaderWrapper>
+        <HeaderDarkStyled>
+          <Grid container justifyContent="space-between" alignItems="center">
+            <Grid item display='flex' gap={1}>
+              <ListItemIconBar
+                padding="10px"
+              >
+                <PhoneSmIcon />
+                <ListItemTopBarLabel>
+                  (225) 555-0118
+                </ListItemTopBarLabel>
+              </ListItemIconBar>
+              <ListItemIconBar
+                padding="10px"
+              >
+                <MailSmIcon />
+                <ListItemTopBarLabel>
+                  michelle.rivera@example.com
+                </ListItemTopBarLabel>
+              </ListItemIconBar>
+            </Grid>
+            <Grid item>
               <ListItemTopBarLabel>
-                (225) 555-0118
+                Follow Us  and get a chance to win 80% off
               </ListItemTopBarLabel>
-            </ListItemIconBar>
-            <ListItemIconBar
-              padding="10px"
-            >
-              <MailSmIcon />
-              <ListItemTopBarLabel>
-                michelle.rivera@example.com
-              </ListItemTopBarLabel>
-            </ListItemIconBar>
-          </Grid>
-          <Grid item>
+            </Grid>
+            <Grid item display="flex" alignItems="center">
             <ListItemTopBarLabel>
-              Follow Us  and get a chance to win 80% off
-            </ListItemTopBarLabel>
+                Follow Us  :
+              </ListItemTopBarLabel>
+              <Box display="flex" alignItems="center">
+                <TopBarMediaIcon>
+                  <Link href="#"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <InstagramSmIcon />
+                  </Link>
+                </TopBarMediaIcon>
+                <TopBarMediaIcon>
+                  <Link href="#"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <YoutubeSmIcon />
+                  </Link>
+                </TopBarMediaIcon>
+                <TopBarMediaIcon>
+                  <Link href="#"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <FacebookSmIcon />
+                  </Link>
+                </TopBarMediaIcon>
+                <TopBarMediaIcon>
+                  <Link href="#"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <TwitterSmIcon />
+                  </Link>
+                </TopBarMediaIcon>
+              </Box>
+            </Grid>
           </Grid>
-          <Grid item display="flex" alignItems="center">
-           <ListItemTopBarLabel>
-              Follow Us  :
-            </ListItemTopBarLabel>
-            <Box display="flex" alignItems="center">
-              <TopBarMediaIcon>
-                <Link href="#"
-                  display="flex"
-                  alignItems="center"
-                >
-                  <InstagramSmIcon />
-                </Link>
-              </TopBarMediaIcon>
-              <TopBarMediaIcon>
-                <Link href="#"
-                  display="flex"
-                  alignItems="center"
-                >
-                  <YoutubeSmIcon />
-                </Link>
-              </TopBarMediaIcon>
-              <TopBarMediaIcon>
-                <Link href="#"
-                  display="flex"
-                  alignItems="center"
-                >
-                  <FacebookSmIcon />
-                </Link>
-              </TopBarMediaIcon>
-              <TopBarMediaIcon>
-                <Link href="#"
-                  display="flex"
-                  alignItems="center"
-                >
-                  <TwitterSmIcon />
-                </Link>
-              </TopBarMediaIcon>
-            </Box>
-          </Grid>
-        </Grid>
-      </HeaderDarkStyled>
-      <HeaderLightStyled>
-        <AppBarHeader>
-          Bandage
-        </AppBarHeader>
-        <TopBarButtonList type='row'>
-          <HeaderItem>
-            Home
-          </HeaderItem>
-          <HeaderItem icon={<CaretDownIcon />}>
-            Shop
-          </HeaderItem>
-          <HeaderItem>
-            About
-          </HeaderItem>
-          <HeaderItem>
-            Blog
-          </HeaderItem>
-          <HeaderItem>
-            Contact
-          </HeaderItem>
-          <HeaderItem>
-            Pages
-          </HeaderItem>
-        </TopBarButtonList>
+        </HeaderDarkStyled>
+        <HeaderLightStyled>
+          <AppBarHeader>
+            Bandage
+          </AppBarHeader>
+          <TopBarButtonList type='row'>
+            <HeaderItem>
+              Home
+            </HeaderItem>
+            <HeaderItem icon={<CaretDownIcon />}>
+              Shop
+            </HeaderItem>
+            <HeaderItem>
+              About
+            </HeaderItem>
+            <HeaderItem>
+              Blog
+            </HeaderItem>
+            <HeaderItem>
+              Contact
+            </HeaderItem>
+            <HeaderItem>
+              Pages
+            </HeaderItem>
+          </TopBarButtonList>
 
-        <TopBarButtonList type='row' align='right'>
-          <ListItemIconBar>
-            <UserSmIcon />
-            <HeaderItemText variant='body1'
-              color={Colors.primary}
+          <TopBarButtonList type='row' align='right'>
+            <ListItemIconBar
+              onClick={handleOpenLoginModal}
             >
-              Login / Register
-            </HeaderItemText>
-          </ListItemIconBar>
-          <ListItemIconBar>
+              <UserSmIcon />
+              <HeaderItemText variant='body1'
+                color={Colors.primary}
+              >
+                Login / Register
+              </HeaderItemText>
+            </ListItemIconBar>
+            <ListItemIconBar>
               <SearchSmIcon />
-          </ListItemIconBar>
-          <ListItemIconBar>
-            <BasketSmIcon />
-            <BadgeCountLabel>
-              1
-            </BadgeCountLabel>
-          </ListItemIconBar>
-          <ListItemIconBar>
-            <HeartSmIcon />
-            <BadgeCountLabel>
-              1
-            </BadgeCountLabel>
-          </ListItemIconBar>
-        </TopBarButtonList>
-      </HeaderLightStyled>
-    </HeaderWrapper>
+            </ListItemIconBar>
+            <ListItemIconBar
+              onClick={handleOpen}
+            >
+              <BasketSmIcon />
+              <BadgeCountLabel>
+                {cartCounter}
+              </BadgeCountLabel>
+            </ListItemIconBar>
+            <ListItemIconBar
+              onClick={handleOpenWishlistModal}
+            >
+              <HeartSmIcon />
+              <BadgeCountLabel>
+                {whishListCounter}
+              </BadgeCountLabel>
+            </ListItemIconBar>
+          </TopBarButtonList>
+        </HeaderLightStyled>
+      </HeaderWrapper>
+
+      <CartModal ref={cartModalRef} />
+      <WishlistModal ref={wishlistModalRef} />
+      <LoginModal ref={loginModalRef} />
+    </>
   )
 }
 

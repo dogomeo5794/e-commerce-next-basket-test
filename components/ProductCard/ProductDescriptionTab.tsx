@@ -29,8 +29,6 @@ const ProductDetailsTab: React.FC<{
             href="#"
             color={Colors.secondary_text_color}
             fontWeight={600}
-            padding="12px"
-            width="100%"
             sx={{
               "&:hover": {
                 background: "#edecec",
@@ -39,6 +37,8 @@ const ProductDetailsTab: React.FC<{
               flexDirection: "row",
               gap: 0.5,
               justifyContent: "center",
+              padding: "12px",
+              width: "100%"
             }}
           >
             {tab}

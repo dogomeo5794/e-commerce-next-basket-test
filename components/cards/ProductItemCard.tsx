@@ -2,9 +2,11 @@ import { CardFlatStyled } from "@/styles/Card.style";
 import { CardMediaStyled, LinkButtonStyled, ProductBoxStyled, ProductTextStyled } from "@/styles/ProductItem.style";
 import { Colors } from "@/theme/colors";
 import { Card, CardContent } from "@mui/material";
+import Link from "next/link";
 import React from "react";
+import { Link as ReactRouterLink } from 'react-router-dom';
 
-export interface ProductItemDataInterface {
+export interface ProductDataPropsInterface {
   bgImage: string
   title: string
   link: string
@@ -13,7 +15,7 @@ export interface ProductItemDataInterface {
   id: number
 }
 
-const ProductItemCard: React.FC<ProductItemDataInterface> = ({
+const ProductItemCard: React.FC<ProductDataPropsInterface> = ({
   bgImage,
   title,
   link,
@@ -59,7 +61,7 @@ const ProductItemCard: React.FC<ProductItemDataInterface> = ({
           {title}
         </ProductTextStyled>
 
-        <LinkButtonStyled href={`/products/${id}`}>
+        <LinkButtonStyled href={`/products/${id}`} passHref>
           {link}
         </LinkButtonStyled>
         <ProductBoxStyled>

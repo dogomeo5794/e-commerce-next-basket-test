@@ -1,31 +1,12 @@
 import { TypographyStyled } from "@/styles/Typography.style";
-import { Box, Button, Card, Divider, Grid, IconButton, ImageListItem, List, ListItem, Paper, Rating, Typography } from "@mui/material";
+import { Box, Divider, Grid, Paper } from "@mui/material";
 import React from "react";
-import DotSolidIcon from "../icons/DotSolidIcon";
 import { Colors } from "@/theme/colors";
-import HeartSmIcon from "../icons/HeartSmIcon";
-import BasketDefaultIcon from "../icons/BasketDefaultIcon";
-import HeartDefaultIcon from "../icons/HeartDefaultIcon";
-import EyeDefaultIcon from "../icons/EyeDefaultIcon";
-import { FavoriteBorder, HeartBrokenOutlined } from "@mui/icons-material";
-import ProductCarouselCard from "./ProductCarouselCard";
-import { CardMediaStyled, LinkButtonStyled } from "@/styles/ProductItem.style";
 import { CardFlatStyled } from "@/styles/Card.style";
-import { ProductContainerStyled } from "./Product.style";
-import ProductListCard from "../cards/ProductListCard";
-import SectionTitle, { BoxLabel } from "../cards/SectionTitle";
-import FaBrandHooliIcon from "../icons/FaBrandHooliIcon";
-import FaBrandLyftIcon from "../icons/FaBrandLyftIcon";
-import FaBrandStripeIcon from "../icons/FaBrandStripeIcon";
-import FaBrandPiperHatIcon from "../icons/FaBrandPiperHatIcon";
-import FaBrandAwsIcon from "../icons/FaBrandAwsIcon";
-import FaBrandRedditIcon from "../icons/FaBrandRedditIcon";
-import { BoxFlexCenter } from "../Blog/Blog.style";
 import ProductDetailsTab from "./ProductDescriptionTab";
+import { ProductDataInterface } from "../cards/ProductListCard";
 
-const ProductDescriptionCard: React.FC = () => {
-  const [rating, setRating] = React.useState<number | null>(4);
-
+const ProductDescriptionCard: React.FC<{ product: ProductDataInterface }> = ({ product }) => {
   return (
     <Box
       sx={{
@@ -119,54 +100,6 @@ const ProductDescriptionCard: React.FC = () => {
                   }}
                 />
               </Paper>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
-
-      <Box>
-        <Box padding="24px 0 48px 0">
-          <BoxLabel alignItems="flex-start" margin="27px">
-            <TypographyStyled
-              variant="h3"
-              color={Colors.default_color}
-              lineHeight="32px"
-              letterSpacing="0.1px"
-              alignItems="left"
-              fontSize="24px"
-            >
-              BESTSELLER PRODUCTS
-            </TypographyStyled>
-          </BoxLabel>
-          <ProductContainerStyled
-            padding="15px 27px"
-          >
-            <Divider sx={{ width: "100%", marginBottom: "20px" }} />
-            <ProductListCard />
-          </ProductContainerStyled>
-        </Box>
-      </Box>
-
-      <Box>
-        <Box padding="50px 20px 50px 20px">
-          <Grid container alignItems="center" spacing={10}>
-            <Grid item lg={2} md={2} sm={4} xs={12}>
-              <FaBrandHooliIcon />
-            </Grid>
-            <Grid item lg={2} md={2} sm={4} xs={12}>
-              <FaBrandLyftIcon />
-            </Grid>
-            <Grid item lg={2} md={2} sm={4} xs={12}>
-              <FaBrandPiperHatIcon />
-            </Grid>
-            <Grid item lg={2} md={2} sm={4} xs={12}>
-              <FaBrandStripeIcon />
-            </Grid>
-            <Grid item lg={2} md={2} sm={4} xs={12}>
-              <FaBrandAwsIcon />
-            </Grid>
-            <Grid item lg={2} md={2} sm={4} xs={12}>
-              <FaBrandRedditIcon />
             </Grid>
           </Grid>
         </Box>
