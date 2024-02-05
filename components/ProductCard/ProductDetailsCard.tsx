@@ -56,6 +56,9 @@ const ProductDetailsCard: React.FC<{ product: ProductDataInterface }> = ({ produ
 
   const handleAddToCart = async () => {
     dispatch(addToCart(product))
+    setSnackbarTitle("Successfully added to basket")
+    snackbarRef.current?.show();
+    
     // try {
     //   let cartData: any;
     //   let resStatus: number;
