@@ -5,7 +5,8 @@ import { Colors } from "@/theme/colors";
 import { CardFlatStyled } from "@/styles/Card.style";
 import ProductDetailsTab from "./ProductDescriptionTab";
 import { ProductDataInterface } from "../cards/ProductListCard";
-import Image from "next/image";
+import Image from "next/legacy/image";
+import { CardMediaStyled } from "@/styles/ProductItem.style";
 
 const ProductDescriptionCard: React.FC<{ product: ProductDataInterface }> = ({ product }) => {
   return (
@@ -88,18 +89,27 @@ const ProductDescriptionCard: React.FC<{ product: ProductDataInterface }> = ({ p
                 height: "392px",
                 borderRadius: "9px",
               }}>
-                <Image
+                {/* <Image
                   src="/images/bg/bg-table.jpg"
                   alt=""
                   style={{
-                    height: "100%",
-                    width: "100%",
+                    // height: "100%",
+                    // width: "100%",
                     borderRadius: "9px",
                     objectFit: "cover"
                   }}
                   width={100}
                   height={100}
-                  loader={({ src }) => src}
+                /> */}
+
+                <CardMediaStyled
+                  image={`/images/bg/bg-table.jpg`}
+                  title={""}
+                  sx={{
+                    height: "100%",
+                    borderRadius: "9px",
+                    width: "100%",
+                  }}
                 />
               </Paper>
             </Grid>

@@ -8,7 +8,7 @@ import StarOutlinedSmIcon from '../icons/StarOutlinedSmIcon'
 import { DescriptionTextStyled } from './Testimonial.style'
 import { Colors } from '@/theme/colors'
 import { LinkButton } from '@/styles/Button.style'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 function Testimonial() {
   const itemData = [
@@ -176,7 +176,6 @@ function Testimonial() {
                     layout="fill"
                     objectFit="cover"
                     loading="lazy"
-                    loader={({ src }) => src}
                   />
                 </ImageListItem>
               ))}

@@ -7,7 +7,7 @@ import { Delete } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { CartListData, removeFromWishList } from "@/store/modules/productSlice";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const style = {
   position: 'absolute' as 'absolute',

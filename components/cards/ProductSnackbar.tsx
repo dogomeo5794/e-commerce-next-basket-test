@@ -4,7 +4,7 @@ import { TypographyStyled } from "@/styles/Typography.style";
 import { Colors } from "@/theme/colors";
 import { Close } from "@mui/icons-material";
 import { Box, IconButton, Snackbar } from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { forwardRef, useImperativeHandle } from "react";
 
 interface SnackbarProps {
