@@ -89,19 +89,6 @@ const ProductDescriptionCard: React.FC<{ product: ProductDataInterface }> = ({ p
                 height: "392px",
                 borderRadius: "9px",
               }}>
-                {/* <Image
-                  src="/images/bg/bg-table.jpg"
-                  alt=""
-                  style={{
-                    // height: "100%",
-                    // width: "100%",
-                    borderRadius: "9px",
-                    objectFit: "cover"
-                  }}
-                  width={100}
-                  height={100}
-                /> */}
-
                 <CardMediaStyled
                   image={`/images/bg/bg-table.jpg`}
                   title={""}

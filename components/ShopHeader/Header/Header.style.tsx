@@ -79,16 +79,19 @@ export const ListItemTopBarLabel = styled(Typography)(() => ({
   letterSpacing: "0.2px",
 }));
 
-export const HeaderDarkStyled = styled(Box)(() => ({
+export const HeaderDarkStyled = styled(Box)(({ theme }) => ({
   height: "58px",
   backgroundColor: Colors.secondary_color_1,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   padding: "0px 24px",
+  [theme.breakpoints.down("md")]: {
+    display: "none"
+  }
 }));
 
-export const HeaderLightStyled = styled(Box)(() => ({
+export const HeaderLightStyled = styled(Box)(({ theme }) => ({
   display: "flex",
   height: "58px",
   padding: "0px 17px 0px 38px",
@@ -96,6 +99,10 @@ export const HeaderLightStyled = styled(Box)(() => ({
   // justifyContent: "flex-end",
   alignItems: "center",
   gap: "40px",
+  [theme.breakpoints.down("md")]: {
+    height: "90px",
+    display: "grid"
+  }
 }));
 
 export const LinkButtonHoverStyled = styled(Link)(() => ({

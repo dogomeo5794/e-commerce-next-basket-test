@@ -1,48 +1,50 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import { Paper } from '@mui/material';
+import Carousel from 'react-material-ui-carousel';
+import { CardMediaStyled } from '@/styles/ProductItem.style';
+import ChevronWhiteRight from '../icons/ChevronWhiteRight';
+import ChevronWhiteLeft from '../icons/ChevronWhiteLeft';
 
-const images = [
-  {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bird',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bali, Indonesia',
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
-  },
-  {
-    label: 'Goč, Serbia',
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-];
-
-const ProductCarouselCard: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+const ProductCarouselCard: React.FC<{ images?: Array<string> }> = ({ images }) => {
   return (
-    <h1>Carousel here..</h1>
-    // <Box>
-    //   {images.map((step, index) => (
-    //     <Box
-    //       component="img"
-    //       sx={{
-    //         display: 'block',
-    //         overflow: 'hidden',
-    //         width: '100%',
-    //       }}
-    //       src={step.imgPath}
-    //       alt={step.label}
-    //       key={index}
-    //     />
-    //   ))}
-    // </Box>
+    <Carousel
+      navButtonsAlwaysVisible={true}
+      IndicatorIcon={images && images.map(img => <img src={img} style={{ width: "100px", height: "75px", border: "1px solid #c7c5c5" }} />)}
+      indicatorContainerProps={{
+        style: {
+          display: "inline-flex",
+          flexDirection: "row",
+          gap: "10px",
+          overflow: "auto",
+        }
+      }}
+      NextIcon={<ChevronWhiteRight />}
+      PrevIcon={<ChevronWhiteLeft />}
+      navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+        style: {
+            backgroundColor: 'transparent',
+            borderRadius: 0
+        }
+      }} 
+    >
+      {images && images.map( (item: any, i) => (
+        <Paper key={i}
+          sx={{
+            width: "100%",
+            height: "500px"
+          }}
+        >
+          <CardMediaStyled
+            image={item}
+            title={""}
+            sx={{
+              height: "100%",
+              width: "100%",
+            }}
+          />
+        </Paper>
+      ))}
+    </Carousel>
   );
 }
 

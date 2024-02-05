@@ -129,10 +129,12 @@ const ProductDetailsCard: React.FC<{ product: ProductDataInterface }> = ({ produ
       }}
     >
       <Grid container>
-        <Grid item lg={6} md={6} sm={12} xs={12}>
-          <ProductCarouselCard />
+        <Grid item lg={6} md={12} sm={12} xs={12}>
+          <ProductCarouselCard 
+            images={product?.images || []}
+          />
         </Grid>
-        <Grid item lg={6} md={6} sm={12} xs={12}>
+        <Grid item lg={6} md={12} sm={12} xs={12}>
           <Box 
             padding="11px 24px"
             display="flex"
