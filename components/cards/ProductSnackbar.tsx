@@ -95,6 +95,8 @@ const ProductSnackbar = forwardRef<Ref, SnackbarProps>(({headerTitle, thumbnail,
               width: "64px",
               objectFit: "cover",
             }}
+            width={64}
+            height={64}
           />
           <Box
             sx={{

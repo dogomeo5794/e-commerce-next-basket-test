@@ -134,12 +134,9 @@ const WishlistModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref
                       <Image
                         src={product.thumbnail}
                         alt=""
+                        layout="fill"
+                        objectFit="cover"
                         loading="lazy"
-                        style={{
-                          height: "100%",
-                          width: "100%",
-                          objectFit: "cover",
-                        }}
                       />
                     </Link>
                   </Box>

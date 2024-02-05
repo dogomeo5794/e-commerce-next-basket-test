@@ -91,13 +91,14 @@ const ProductDescriptionCard: React.FC<{ product: ProductDataInterface }> = ({ p
                 <Image
                   src="/images/bg/bg-table.jpg"
                   alt=""
-                  loading="lazy"
                   style={{
                     height: "100%",
                     width: "100%",
                     borderRadius: "9px",
                     objectFit: "cover"
                   }}
+                  width={100}
+                  height={100}
                 />
               </Paper>
             </Grid>

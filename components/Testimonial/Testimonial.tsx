@@ -115,6 +115,8 @@ function Testimonial() {
                       border: `1.8px solid ${Colors.muted}`,
                       // background: "url(<path-to-image>), lightgray 50% / cover no-repeat";
                     }}
+                    width={90}
+                    height={90}
                   />
                 {/* </MediaContent> */}
                 </Box>
@@ -168,13 +170,11 @@ function Testimonial() {
               {itemData.map((item) => (
                 <ImageListItem key={item.img} style={{ width: "142.769px", height: "142.769px" }}>
                   <Image
-                    src={`${item.img}?w=142.769&h=142.769&fit=crop&auto=format`}
+                    src={item.img}
                     alt={item.title}
+                    layout="fill"
+                    objectFit="cover"
                     loading="lazy"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                    }}
                   />
                 </ImageListItem>
               ))}
