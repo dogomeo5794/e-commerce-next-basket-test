@@ -99,6 +99,7 @@ const ProductDescriptionCard: React.FC<{ product: ProductDataInterface }> = ({ p
                   }}
                   width={100}
                   height={100}
+                  loader={({ src }) => src}
                 />
               </Paper>
             </Grid>

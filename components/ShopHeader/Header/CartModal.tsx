@@ -171,6 +171,7 @@ const CartModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref) =>
                         }}
                         width={100}
                         height={100}
+                        loader={({ src }) => src}
                       />
                     </Link>
                   </Box>

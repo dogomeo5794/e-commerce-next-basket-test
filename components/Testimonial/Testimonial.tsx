@@ -117,6 +117,7 @@ function Testimonial() {
                     }}
                     width={90}
                     height={90}
+                    loader={({ src }) => src}
                   />
                 {/* </MediaContent> */}
                 </Box>
@@ -175,6 +176,7 @@ function Testimonial() {
                     layout="fill"
                     objectFit="cover"
                     loading="lazy"
+                    loader={({ src }) => src}
                   />
                 </ImageListItem>
               ))}

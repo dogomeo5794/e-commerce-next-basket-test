@@ -97,6 +97,7 @@ const ProductSnackbar = forwardRef<Ref, SnackbarProps>(({headerTitle, thumbnail,
             }}
             width={64}
             height={64}
+            loader={({ src }) => src}
           />
           <Box
             sx={{
