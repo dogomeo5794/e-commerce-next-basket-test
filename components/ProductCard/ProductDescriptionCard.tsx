@@ -5,6 +5,7 @@ import { Colors } from "@/theme/colors";
 import { CardFlatStyled } from "@/styles/Card.style";
 import ProductDetailsTab from "./ProductDescriptionTab";
 import { ProductDataInterface } from "../cards/ProductListCard";
+import Image from "next/image";
 
 const ProductDescriptionCard: React.FC<{ product: ProductDataInterface }> = ({ product }) => {
   return (
@@ -87,8 +88,7 @@ const ProductDescriptionCard: React.FC<{ product: ProductDataInterface }> = ({ p
                 height: "392px",
                 borderRadius: "9px",
               }}>
-                <img
-                  srcSet="/images/bg/bg-table.jpg"
+                <Image
                   src="/images/bg/bg-table.jpg"
                   alt=""
                   loading="lazy"

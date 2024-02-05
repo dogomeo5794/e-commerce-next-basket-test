@@ -37,7 +37,7 @@ const ProductDetails: React.FC = () => {
     if (productId) {
       gerProductDetails({ productId: productId });
     }
-  }, [])
+  }, [productId])
 
   return (
     <>

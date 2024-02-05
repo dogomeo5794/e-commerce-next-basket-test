@@ -7,6 +7,7 @@ import { Delete } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { CartListData, removeFromWishList } from "@/store/modules/productSlice";
+import Image from "next/image";
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -130,8 +131,7 @@ const WishlistModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref
                     }}
                   >
                     <Link href="#">
-                      <img
-                        srcSet={product.thumbnail}
+                      <Image
                         src={product.thumbnail}
                         alt=""
                         loading="lazy"

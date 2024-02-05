@@ -38,7 +38,7 @@ function Feature() {
       <Box>
         <Grid container>
           {featureItems.map((data, key) => (
-            <Grid item lg={4} md={4} sm={12} xs={12}>
+            <Grid item lg={4} md={4} sm={12} xs={12} key={key}>
               <FeatureItemCard 
                 icon={data.icon}
                 title={data.title}

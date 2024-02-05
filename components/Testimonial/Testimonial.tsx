@@ -8,6 +8,7 @@ import StarOutlinedSmIcon from '../icons/StarOutlinedSmIcon'
 import { DescriptionTextStyled } from './Testimonial.style'
 import { Colors } from '@/theme/colors'
 import { LinkButton } from '@/styles/Button.style'
+import Image from 'next/image'
 
 function Testimonial() {
   const itemData = [
@@ -102,8 +103,7 @@ function Testimonial() {
                   alignItems: "center",
                 }}>
                 {/* <MediaContent> */}
-                  <img
-                    srcSet=""
+                  <Image
                     src="/images/testimonials/user-1.png"
                     alt="Sample"
                     loading="lazy"
@@ -167,8 +167,7 @@ function Testimonial() {
             {/* <ImageList sx={{ width: "428.307px", height: "428.307px" }} cols={3}> */}
               {itemData.map((item) => (
                 <ImageListItem key={item.img} style={{ width: "142.769px", height: "142.769px" }}>
-                  <img
-                    srcSet={`${item.img}?w=142.769&h=142.769&fit=crop&auto=format&dpr=2 2x`}
+                  <Image
                     src={`${item.img}?w=142.769&h=142.769&fit=crop&auto=format`}
                     alt={item.title}
                     loading="lazy"

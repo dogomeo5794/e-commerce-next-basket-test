@@ -4,6 +4,7 @@ import { TypographyStyled } from "@/styles/Typography.style";
 import { Colors } from "@/theme/colors";
 import { Close } from "@mui/icons-material";
 import { Box, IconButton, Snackbar } from "@mui/material";
+import Image from "next/image";
 import React, { forwardRef, useImperativeHandle } from "react";
 
 interface SnackbarProps {
@@ -85,8 +86,7 @@ const ProductSnackbar = forwardRef<Ref, SnackbarProps>(({headerTitle, thumbnail,
             gap: "10px",
           }}
         >
-          <img
-            srcSet={thumbnail}
+          <Image
             src={thumbnail}
             alt=""
             loading="lazy"
