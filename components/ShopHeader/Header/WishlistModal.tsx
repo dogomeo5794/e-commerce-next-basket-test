@@ -3,7 +3,7 @@ import { Backdrop, Box, Button, Fade, Grid, IconButton, List, ListItem, Modal } 
 import React, { forwardRef, useImperativeHandle } from "react";
 import Link from "next/link";
 import { TypographyStyled } from "@/styles/Typography.style";
-import { Delete } from "@mui/icons-material";
+import { CloseOutlined, Delete } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { CartListData, removeFromWishList } from "@/store/modules/productSlice";
@@ -98,7 +98,27 @@ const WishlistModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref
     >
       <Fade in={open}>
       {/* <Fade in={true}> */}
-        <Box sx={style}>
+        <Box sx={(theme) => ({
+          ...style,
+          position: "relative",
+          [theme.breakpoints.down("sm")]: {
+            width: "100%"
+          }
+        })}>
+          <IconButton 
+            onClick={handleClose}
+            sx={{
+              position: "absolute",
+              top: "0",
+              right: "0",
+              zIndex: "1",
+              background: Colors.danger,
+              color: Colors.white,
+              borderRadius: "0"
+            }}
+          >
+            <CloseOutlined />
+          </IconButton>
           <List
             sx={{
               padding: "0",
