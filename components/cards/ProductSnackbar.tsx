@@ -123,4 +123,6 @@ const ProductSnackbar = forwardRef<Ref, SnackbarProps>(({headerTitle, thumbnail,
   );
 });
 
+ProductSnackbar.displayName = 'ProductSnackbar';
+
 export default ProductSnackbar;

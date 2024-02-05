@@ -79,6 +79,8 @@ const ProductListCard = forwardRef<Ref, ProductProps>(({ children = null, setLoa
 
   React.useEffect(() => {
     gerProducts({ loadMore: false });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -99,5 +101,7 @@ const ProductListCard = forwardRef<Ref, ProductProps>(({ children = null, setLoa
     </Grid>
   );
 });
+
+ProductListCard.displayName = 'ProductListCard';
 
 export default ProductListCard;

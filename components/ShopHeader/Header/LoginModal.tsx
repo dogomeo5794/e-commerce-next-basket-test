@@ -140,4 +140,6 @@ const LoginModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref) =
   );
 })
 
+LoginModal.displayName = 'LoginModal';
+
 export default LoginModal;

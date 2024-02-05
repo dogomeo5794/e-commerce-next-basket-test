@@ -7,7 +7,6 @@ import Cta from "@/components/Cta/Cta"
 import Blog from "@/components/Blog/Blog";
 import Shop from "@/components/ShopHeader/Shop/Shop";
 import React from "react";
-import { API } from "@/lib/api";
 
 const Home: React.FC = () => {
   return (

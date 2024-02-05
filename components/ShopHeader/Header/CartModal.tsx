@@ -345,4 +345,6 @@ const CartModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref) =>
   );
 })
 
+CartModal.displayName = 'CartModal';
+
 export default CartModal;

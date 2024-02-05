@@ -18,7 +18,7 @@ export default function ThemeRegistry({
   const dispatch = useDispatch();
   const wishList = useSelector((state: RootState) => state.product.wishList)
   const userId = useSelector((state: RootState) => state.auth.id)
-  const token = localStorage.getItem("token");
+  const token = useSelector((state: RootState) => state.auth.token)
   const getUserData = async () => {
     try {
       const {data, status} = await API.get("/auth/me", {
@@ -76,7 +76,11 @@ export default function ThemeRegistry({
     if (token) {
       getUserData();
     }
-  }, [])
+
+    if (typeof window !== 'undefined') {
+
+    }
+  }, [token])
 
   React.useEffect(() => {
     // if (userId) {

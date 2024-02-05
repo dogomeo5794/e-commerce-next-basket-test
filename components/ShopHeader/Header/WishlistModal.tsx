@@ -211,4 +211,6 @@ const WishlistModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref
   );
 })
 
+WishlistModal.displayName = 'WishlistModal';
+
 export default WishlistModal;
