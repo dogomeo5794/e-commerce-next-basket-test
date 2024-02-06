@@ -134,7 +134,7 @@ const CartModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref) =>
             width: "100%"
           }
         })}>
-          <IconButton 
+          {/* <IconButton 
             onClick={handleClose}
             sx={{
               position: "absolute",
@@ -147,7 +147,7 @@ const CartModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref) =>
             }}
           >
             <CloseOutlined />
-          </IconButton>
+          </IconButton> */}
           <List
             sx={{
               padding: "0",
@@ -156,6 +156,16 @@ const CartModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref) =>
               overflow: "auto",
             }}
           >
+            <ListItem sx={{
+              background: "white",
+              justifyContent: "end"
+            }}>
+              <Button startIcon={<Close />}
+                onClick={handleClose}
+              >
+                Close
+              </Button>
+            </ListItem>
             {cartProducts.map((product, key) => (
               <ListItem
                 sx={{

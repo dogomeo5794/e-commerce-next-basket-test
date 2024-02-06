@@ -9,7 +9,7 @@ import ProductBestSellerCard from '@/components/ProductCard/ProductBestSellerCar
 import ProductBrandLogoListCard from '@/components/ProductCard/ProductBrandLogoListCard';
 import { API } from '@/lib/api';
 import { ProductDataInterface } from '@/components/cards/ProductListCard';
-import { useTheme } from '@mui/material';
+import { Toolbar, useTheme } from '@mui/material';
 
 const ProductDetails: React.FC = () => {
   const theme = useTheme();

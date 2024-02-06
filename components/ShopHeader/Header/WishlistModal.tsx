@@ -3,7 +3,7 @@ import { Backdrop, Box, Button, Fade, Grid, IconButton, List, ListItem, Modal } 
 import React, { forwardRef, useImperativeHandle } from "react";
 import Link from "next/link";
 import { TypographyStyled } from "@/styles/Typography.style";
-import { CloseOutlined, Delete } from "@mui/icons-material";
+import { Close, CloseOutlined, Delete } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { CartListData, removeFromWishList } from "@/store/modules/productSlice";
@@ -105,7 +105,7 @@ const WishlistModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref
             width: "100%"
           }
         })}>
-          <IconButton 
+          {/* <IconButton 
             onClick={handleClose}
             sx={{
               position: "absolute",
@@ -118,7 +118,7 @@ const WishlistModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref
             }}
           >
             <CloseOutlined />
-          </IconButton>
+          </IconButton> */}
           <List
             sx={{
               padding: "0",
@@ -127,6 +127,16 @@ const WishlistModal = forwardRef<Ref, ModalProps>(({ children }: ModalProps, ref
               overflow: "auto",
             }}
           >
+            <ListItem sx={{
+              background: "white",
+              justifyContent: "end"
+            }}>
+              <Button startIcon={<Close />}
+                onClick={handleClose}
+              >
+                Close
+              </Button>
+            </ListItem>
             {cartProducts.map((product, key) => (
               <ListItem
                 sx={{

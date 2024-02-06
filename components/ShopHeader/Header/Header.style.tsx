@@ -20,7 +20,7 @@ export const HeaderWrapper = styled(Box)(() => ({
   marginBottom: "10px",
 }));
 
-export const AppBarHeader = styled(Typography)(() => ({
+export const AppBarHeader = styled(Typography)(({ theme }) => ({
   padding: "4px",
   flexGrow: 1,
   fontSize: "24px",
@@ -28,6 +28,11 @@ export const AppBarHeader = styled(Typography)(() => ({
   color: Colors.default_color,
   fontWeight: 700,
   maxWidth: "12rem",
+  [theme.breakpoints.down("md")]: {
+    display: "flex",
+    justifyContent: "space-between",
+    maxWidth: "100%"
+  }
 }));
 
 export const TopBarButtonList = styled(List)<{
