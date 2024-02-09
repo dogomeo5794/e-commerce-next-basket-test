@@ -9,10 +9,11 @@ import ProductBestSellerCard from '@/components/ProductCard/ProductBestSellerCar
 import ProductBrandLogoListCard from '@/components/ProductCard/ProductBrandLogoListCard';
 import { API } from '@/lib/api';
 import { ProductDataInterface } from '@/components/cards/ProductListCard';
-import { Toolbar, useTheme } from '@mui/material';
+import { Toolbar, useMediaQuery, useTheme } from '@mui/material';
 
 const ProductDetails: React.FC = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const params = useParams();
   const productId = params?.id;
   const [product, setProduct] = React.useState<ProductDataInterface>({
@@ -45,7 +46,7 @@ const ProductDetails: React.FC = () => {
     <>
       <BreadCrumb />
       <ProductDetailsCard product={product} />
-      {!theme.breakpoints.down("md") && (
+      {!isMobile && (
         <>
           <ProductDescriptionCard product={product} />
           <ProductBestSellerCard />

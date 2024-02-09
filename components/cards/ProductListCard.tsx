@@ -87,7 +87,7 @@ const ProductListCard = forwardRef<Ref, ProductProps>(({ children = null, setLoa
     <Grid container spacing={2}>
       {products.map((product: ProductDataInterface, key) => (
         // <Grid item key={key}>
-        <Grid item lg={3} md={3} sm={4} xs={12} key={product.id}>
+        <Grid item lg={3} md={4} sm={6} xs={12} key={product.id}>
           <ProductItemCard
             bgImage={product.thumbnail}
             title={product.title}
