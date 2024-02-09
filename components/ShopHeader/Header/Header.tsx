@@ -1,6 +1,6 @@
 "use client"
 
-import { AppBar, Backdrop, Box, Button, Fade, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal, Slide, Slider, Toolbar, Typography, useScrollTrigger, useTheme } from '@mui/material'
+import { AppBar, Backdrop, Box, Button, Fade, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal, Slide, Slider, Toolbar, Typography, useMediaQuery, useScrollTrigger, useTheme } from '@mui/material'
 import React, { useRef } from 'react'
 import { AppBarHeader, BadgeCountLabel, HeaderItemText, HeaderWrapper, ListItemIconBar, ListItemTopBarLabel, TopBarButtonList, TopBarMediaIcon } from './Header.style';
 import { HeaderItem } from './HeaderItem';
@@ -29,6 +29,7 @@ import BurgerMenuSmIcon from '@/components/icons/BurgerMenuSmIcon';
 
 const Header: React.FC = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const cartModalRef = useRef<{ show: () => void }>(null);
   const wishlistModalRef = useRef<{ show: () => void }>(null);
   const loginModalRef = useRef<{ show: () => void }>(null);
@@ -52,6 +53,10 @@ const Header: React.FC = () => {
   const handleToggleMenu = () => {
     setToggleMenu(!toggleMenu)
   }
+
+  React.useEffect(() => {
+    setToggleMenu(isMobile ? false : true)
+  }, [isMobile])
 
   const MenuContent = () => {
     return (
@@ -409,7 +414,10 @@ const Header: React.FC = () => {
                   <BurgerMenuSmIcon />
                 </Button>
               </AppBarHeader>
-              {toggleMenu && (
+              {!isMobile && (
+                <MenuContent />
+              )}
+              {isMobile && toggleMenu && (
                 <MenuContent />
               )}
             </HeaderLightStyled>
